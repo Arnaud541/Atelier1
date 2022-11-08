@@ -1,5 +1,7 @@
 <?php
 
+require_once('vendor/autoload.php');
+
 $data = parse_ini_file("config/config.ini");
 
 $db = new Illuminate\Database\Capsule\Manager();
