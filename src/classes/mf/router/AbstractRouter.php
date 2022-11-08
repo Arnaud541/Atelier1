@@ -1,8 +1,8 @@
 <?php
 
-namespace Tweeter\mf\router;
+namespace MediaPhoto\mf\router;
 
-use Tweeter\mf\utils\HttpRequest;
+use MediaPhoto\mf\utils\HttpRequest;
 
 
 abstract class AbstractRouter

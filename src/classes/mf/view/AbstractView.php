@@ -1,9 +1,9 @@
 <?php
 
-namespace Tweeter\mf\view;
+namespace MediaPhoto\mf\view;
 
-use Tweeter\mf\router\Router;
-use Tweeter\mf\utils\HttpRequest;
+use MediaPhoto\mf\router\Router;
+use MediaPhoto\mf\utils\HttpRequest;
 
 abstract class AbstractView
 {

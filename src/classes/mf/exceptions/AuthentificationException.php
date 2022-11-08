@@ -1,6 +1,6 @@
 <?php
 
-namespace Tweeter\mf\exceptions;
+namespace MediaPhoto\mf\exceptions;
 
 use Exception;
 

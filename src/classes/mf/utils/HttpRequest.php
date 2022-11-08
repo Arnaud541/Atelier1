@@ -1,8 +1,8 @@
 <?php
 
-namespace Tweeter\mf\utils;
+namespace MediaPhoto\mf\utils;
 
-use Tweeter\mf\utils\AbstractHttpRequest;
+use MediaPhoto\mf\utils\AbstractHttpRequest;
 
 
 class HttpRequest extends AbstractHttpRequest

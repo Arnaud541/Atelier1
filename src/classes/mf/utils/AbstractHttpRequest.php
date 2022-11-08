@@ -1,6 +1,6 @@
 <?php
 
-namespace Tweeter\mf\utils;
+namespace MediaPhoto\mf\utils;
 
 abstract class AbstractHttpRequest
 {
