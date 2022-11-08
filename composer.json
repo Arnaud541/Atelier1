@@ -1,10 +1,10 @@
-{ "name": "iutnc/galleryapp",
+{ "name": "atelier/mediaphoto",
   "description": "Encore mieur que l'original",
   "type": "project",
   
   "autoload": {
       "psr-4": {
-          "iutnc\\" : "./src/classes"
+          "MediaPhoto\\" : "./src/classes/"
       }
   },
   
