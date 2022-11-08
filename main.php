@@ -10,5 +10,6 @@ $db->addConnection($data); /* configuration avec nos paramètres */
 $db->setAsGlobal();            /* rendre la connexion visible dans tout le projet */
 $db->bootEloquent(); /* établir la connexion */
 
-print_r($db);
+$faker = \Faker\Factory::create();
 
+echo $faker->imageUrl("car");
