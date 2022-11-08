@@ -1,3 +1,4 @@
 vendor/
 config/
 .gitignore
+config/config.ini
