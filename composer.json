@@ -4,11 +4,12 @@
   
   "autoload": {
       "psr-4": {
-          "iutnc\\" : "./src/classes"
+          "MediaPhoto\\" : "./src/classes"
       }
   },
   
   "require": {
-      "illuminate/database": "*"
+      "illuminate/database": "*",
+      "phpunit/phpunit": "*"
   }
 }
