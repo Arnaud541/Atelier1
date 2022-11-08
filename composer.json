@@ -4,7 +4,7 @@
   
   "autoload": {
       "psr-4": {
-          "MediaPhoto\\" : "./src/classes/"
+          "MediaPhoto\\" : "./src/classes"
       }
   },
   
