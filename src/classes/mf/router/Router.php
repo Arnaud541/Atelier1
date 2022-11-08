@@ -3,6 +3,7 @@
 namespace MediaPhoto\mf\router;
 
 use MediaPhoto\mf\router\AbstractRouter;
+use MediaPhoto\mf\auth\AbstractAuthentification;
 
 class Router extends AbstractRouter
 {

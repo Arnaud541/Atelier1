@@ -12,4 +12,3 @@ $db->bootEloquent(); /* établir la connexion */
 
 $faker = \Faker\Factory::create();
 
-echo $faker->imageUrl("car");
