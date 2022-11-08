@@ -9,5 +9,3 @@ $db->setAsGlobal();            /* rendre la connexion visible dans tout le proje
 $db->bootEloquent(); /* établir la connexion */
 
 print_r($db);
-
-echo "bite";
