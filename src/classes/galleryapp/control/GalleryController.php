@@ -8,12 +8,11 @@ use MediaPhoto\mf\control\AbstractController;
 
 class GalleryController extends AbstractController
 {
-
     public function execute(): void
     {
-        $idGallery = $this->request->get['idGallery'];
+        $idGallery = $this->request->get['id'];
 
-        $gallery = Gallery::where('id', '=', $idGallery);
+        $gallery = Gallery::where('id', '=', $idGallery)->first();
 
         $images = $gallery->images()->get();
 
