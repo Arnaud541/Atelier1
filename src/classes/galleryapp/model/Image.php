@@ -10,4 +10,9 @@ class Image extends Model
     protected $primaryKey = "id";
     public $timestamps = ["created_at"];
     const UPDATED_AT = null;
+
+    public function gallery()
+    {
+        return $this->belongsTo('\MediaPhoto\galleryapp\model\Gallery', 'id_gallery');
+    }
 }
