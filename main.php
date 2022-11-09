@@ -33,8 +33,7 @@ $db->bootEloquent(); /* établir la connexion */
 //     }
 // }
 
-// $test = new SignupView;
-// echo $test->render();
+
 
 $router = new Router();
 

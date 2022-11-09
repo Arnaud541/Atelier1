@@ -29,14 +29,17 @@ class SignupController extends AbstractController
                             Router::executeRoute('home');
                         } else {
                             // throw new AuthentificationException("Mot de passe non égal.");
-                            Router::executeRoute('inscription');
+                            $this->request->method = 'GET';
+                            $this->execute();
                         }
                     } else {
                         // throw new AuthentificationException("Un champ est vide. Veuillez réessayer");
-                        Router::executeRoute('inscription');
+                        $this->request->method = 'GET';
+                        $this->execute();
                     }
                 } else {
-                    Router::executeRoute('inscription');
+                    $this->request->method = 'GET';
+                    $this->execute();
                 }
                 break;
         }
