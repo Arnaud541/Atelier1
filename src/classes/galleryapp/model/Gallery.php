@@ -2,18 +2,21 @@
 
 namespace MediaPhoto\galleryapp\model;
 
-class Gallery extends \Illuminate\Database\Eloquent\Model{
-    protected $table = "gallery";
-    protected $primaryKey = "id";
-    public $timestamp = false; 
+use Illuminate\Database\Eloquent\Model;
 
-    public function user(){
+class Gallery extends Model
+{
+    protected $table = "Gallery";
+    protected $primaryKey = "id";
+    public $timestamp = true;
+
+    public function user()
+    {
         return $this->belongsTo('MediaPhoto\galleryapp\model\User', 'id_user');
     }
 
-    public function images(){
+    public function images()
+    {
         return $this->hasMany('MediaPhoto\galleryapp\model\Images', 'id_gallery');
     }
-
 }
-
