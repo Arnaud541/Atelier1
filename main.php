@@ -40,6 +40,7 @@ $router = new Router();
 $router->addRoute('home', 'liste_gallerys', 'MediaPhoto\galleryapp\control\HomeController');
 $router->addRoute('view', 'view_gallery', 'MediaPhoto\galleryapp\control\GalleryController');
 $router->addRoute('inscription', 'signup', 'MediaPhoto\galleryapp\control\SignupController');
+$router->addRoute('create_view', 'new_gallery', 'MediaPhoto\galleryapp\control\NewGalleryController');
 
 $router->setDefaultRoute('liste_gallerys');
 

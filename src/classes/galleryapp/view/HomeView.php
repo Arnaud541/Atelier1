@@ -29,7 +29,7 @@ class HomeView extends MediaPhotoView implements Renderer
                 $html .= "<img src='$image'>". "</a></div><div>$gallery->descript</div><br>";
             }
             else {
-                $html .= "<a href='$url_gallery'>";
+                $html .= "<a href='$url_gallery'> </a>";
                 $html .= "<div><h1>" . $gallery->name . "<h1>";
                 $html .= "<div>" . $gallery->descript . "</div></div><br>";
             }
