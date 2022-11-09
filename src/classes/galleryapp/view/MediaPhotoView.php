@@ -2,16 +2,31 @@
 
 namespace MediaPhoto\galleryapp\model;
 
-class MediaPhotoView{
+use MediaPhoto\mf\view\AbstractView;
+use MediaPhoto\mf\view\Renderer;
 
-    public function renderNavbar(){
-        ?>
-            <nav id="navbar">
-                <a href="#">MediaPhoto</a>
-                <a href="#">Inscription</a>
-                <a href="#">Connexion</a>
-            </nav>
-        <?php
+class MediaPhotoView extends AbstractView implements Renderer
+{
+
+    public function renderNavbar()
+    {
+
+        if (isset($_SESSION['user_profile'])) {
+            return '<nav id="navbar">
+                        <a href="#">MediaPhoto</a>
+                        <a href="#">Galerie</a>
+                        <a href="#">Deconnexion</a>
+                    </nav>';
+        } else {
+            return '<nav id="navbar">
+                        <a href="#">MediaPhoto</a>
+                        <a href="#">Inscription</a>
+                        <a href="#">Connexion</a>
+                    </nav>';
+        }
     }
 
+    public function makeBody()
+    {
+    }
 }
