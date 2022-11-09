@@ -5,7 +5,7 @@ namespace MediaPhoto\galleryapp\view;
 use MediaPhoto\mf\view\AbstractView;
 use MediaPhoto\mf\view\Renderer;
 
-class MediaPhotoView extends AbstractView implements Renderer
+abstract class MediaPhotoView extends AbstractView implements Renderer
 {
 
     public function renderNavbar()
@@ -30,7 +30,7 @@ class MediaPhotoView extends AbstractView implements Renderer
         }
     }
 
-    public function makeBody()
+    protected function makeBody()
     {
     }
 }
