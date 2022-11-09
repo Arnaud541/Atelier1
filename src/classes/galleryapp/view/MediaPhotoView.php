@@ -34,8 +34,20 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         }
     }
 
-    protected function makeBody():string
-    {
-        return " ";
+    public function renderFooter():string{
+        return "<footer>crée par P A U L</footer>";
     }
+
+    protected function makeBody():string{
+
+        $content = $this->render();
+        $navbar = $this->renderNavbar();
+        $footer = $this->renderFooter();
+
+        $html = "<header>$navbar</header>";
+        $html .= "<section><article>$content</article></section>";
+        $html .= $footer;
+        return $html;
+    }
+
 }
