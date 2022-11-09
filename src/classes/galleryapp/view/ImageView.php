@@ -9,5 +9,8 @@ class ImageView extends MediaPhotoView implements Renderer
 {
     public function render(): string
     {
+        $image = $this->data;
+
+        
     }
 }
