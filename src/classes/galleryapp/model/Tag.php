@@ -10,13 +10,13 @@ class Tag extends Model
     protected $primaryKey = "id";
     public $timestamps = false;
 
-    public function images_tag()
+    public function imagesTag()
     {
-        return $this->hasMany('MediaPhoto\galleryapp\model\Tags', 'id_img');
+        return $this->belongsTo('MediaPhoto\galleryapp\model\Image', 'id_img');
     }
 
-    public function gallery_tag()
+    public function galleryTag()
     {
-        return $this->hasMany('MediaPhoto\galleryapp\model\Tags', 'id_gallery');
+        return $this->belongsTo('MediaPhoto\galleryapp\model\Gallery', 'id_gallery');
     }
 }
