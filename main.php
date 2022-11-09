@@ -12,7 +12,6 @@ use Illuminate\Database\Capsule\Manager;
 use MediaPhoto\galleryapp\model\Gallery;
 use MediaPhoto\galleryapp\control\HomeController;
 use MediaPhoto\galleryapp\control\ImageController;
-use MediaPhoto\galleryapp\control\GalleryController;
 
 $data = parse_ini_file("config/config.ini");
 
@@ -33,11 +32,8 @@ $db->bootEloquent(); /* établir la connexion */
 //     }
 // }
 
-$router = new Router();
 
-$router->addRoute('home', 'liste_gallerys', '\MediaPhoto\galleryapp\control\HomeController');
-$router->addRoute('view', 'view_gallery', '\MediaPhoto\galleryapp\control\GalleryController');
-
-$router->setDefaultRoute('liste_gallerys');
+$router->addRoute('home', 'liste_gallerys', 'HomeController');
+$router->addRoute('view', 'view_gallery', 'GalleryController');
 
 $router->run();
