@@ -16,7 +16,8 @@ class HomeView extends MediaPhotoView implements Renderer
 
         foreach ($gallerys as $gallery){
 
-            $url_gallery = $this->router->urlFor("view", ['id', $gallery->id]);
+            $url_gallery = $this->router->urlFor("view", ['id' => $gallery->id]);
+
 
 
             if (isset($gallery->images()->first()->path)){
