@@ -7,13 +7,10 @@ use MediaPhoto\mf\exceptions\AuthentificationException;
 abstract class AbstractAuthentification
 {
 
-    /* une constante pour le niveau le plus bas */
-    const ACCESS_LEVEL_NONE = -9999;
-
     /* la taille minimum des mot de passe */
     const MIN_PASSWORD_LENGTH = 6;
 
-    protected static function loadProfile(int $id, int $level): void
+    protected static function loadProfile(int $id): void
     {
         /* 
          * La méthode loadProfile : 
@@ -25,12 +22,10 @@ abstract class AbstractAuthentification
          *
          * Paramètre :
          *    $id : id de l'utilisateur
-         *    $level : son niveau d'accès
          * 
          */
 
         $_SESSION['user_profile']['id'] = $id;
-        $_SESSION['user_profile']['access_level'] = $level;
     }
 
 
@@ -63,54 +58,6 @@ abstract class AbstractAuthentification
         if (isset($_SESSION['user_profile']['id']))
             return $_SESSION['user_profile']['id'];
         return null;
-    }
-
-
-    public static function checkAccessRight(int $requested): bool
-    {
-
-        /* 
-         * La méthode checkAccessRight:
-         * 
-         * Méthode pour verifier le niveau d'accès de l'utilisateur.
-         * Elle est à utiliser avant chaque accès à une fonctionnalité
-         *
-         * Paramètres:
-         *
-         *    $requested, le niveau requis pour la fonctionnalité
-         *
-         * Retourne
-         *    vrai si le niveaux requis est inférieur ou égale à la 
-         *    valeur du niveau de l'utilisateur (stocké en profil)
-         * 
-         * Algorithme :
-         * 
-         * 
-         * S'il y a un profile en session
-         *     Si $requested > le niveau du profil  
-         *         Retourner faux
-         *     Sinon 
-         *         Retourner vrai
-         * Sinon 
-         *     Si $requested > self::ACCESS_LEVEL_NONE
-         *         Retourner faux
-         *     Sinon 
-         *         Retourner vrai
-         */
-
-        if (isset($_SESSION['user_profile'])) {
-            if ($requested > $_SESSION['user_profile']['access_level']) {
-                return false;
-            } else {
-                return true;
-            }
-        } else {
-            if ($requested > self::ACCESS_LEVEL_NONE) {
-                return false;
-            } else {
-                return true;
-            }
-        }
     }
 
 
@@ -149,8 +96,7 @@ abstract class AbstractAuthentification
     protected static function checkPassword(
         string $given_pass,
         string $db_hash,
-        int $id,
-        int $level
+        int $id
     ): void {
 
 
@@ -174,7 +120,7 @@ abstract class AbstractAuthentification
          *       charger le profile 
          */
         if (password_verify($given_pass, $db_hash)) {
-            self::loadProfile($id, $level);
+            self::loadProfile($id);
         } else {
             throw new AuthentificationException("Echec de l'authentification");
         }
