@@ -74,8 +74,7 @@ abstract class AbstractRouter
     abstract public function addRoute(
         string $name,
         string $action,
-        string $ctrl,
-        int $level
+        string $ctrl
     ): void;
 
 

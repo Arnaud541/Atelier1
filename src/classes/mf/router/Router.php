@@ -8,9 +8,9 @@ use MediaPhoto\mf\auth\AbstractAuthentification;
 class Router extends AbstractRouter
 {
 
-    public function addRoute(string $name, string $action, string $ctrl, int $level): void
+    public function addRoute(string $name, string $action, string $ctrl): void
     {
-        self::$routes[$action] = [$ctrl, $level];
+        self::$routes[$action] = $ctrl;
         self::$aliases[$name] = $action;
     }
 
@@ -25,25 +25,16 @@ class Router extends AbstractRouter
         if (isset($this->request->get["action"])) {
             $action = $this->request->get["action"];
             if (array_key_exists($action, self::$routes)) {
-                $access = AbstractAuthentification::checkAccessRight(self::$routes[$action][1]);
-                if ($access) {
-                    $controller = new self::$routes[$action][0];
-                    $controller->execute();
-                } else {
-                    $home = self::$aliases["default"];
-                    $home = new self::$routes[$home][0];
-                    $home->execute();
-                }
+                $controller = new self::$routes[$action];
+                $controller->execute();
             } else {
                 $home = self::$aliases["default"];
-
-                $home = new self::$routes[$home][0];
-
+                $home = new self::$routes[$home];
                 $home->execute();
             }
         } else {
             $home = self::$aliases["default"];
-            $home = new self::$routes[$home][0];
+            $home = new self::$routes[$home];
             $home->execute();
         }
     }
@@ -52,11 +43,11 @@ class Router extends AbstractRouter
     {
         if (array_key_exists($alias, self::$aliases)) {
             $action = self::$aliases[$alias];
-            $controller = new self::$routes[$action][0];
+            $controller = new self::$routes[$action];
             $controller->execute();
         } else {
             $home = self::$aliases["default"];
-            $home = new self::$routes[$home][0];
+            $home = new self::$routes[$home];
             $home->execute();
         }
     }
