@@ -2,7 +2,6 @@
 
 namespace MediaPhoto\galleryapp\control;
 
-
 use MediaPhoto\galleryapp\model\Gallery;
 use MediaPhoto\galleryapp\view\HomeView;
 use MediaPhoto\mf\control\AbstractController;
