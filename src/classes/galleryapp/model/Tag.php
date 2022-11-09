@@ -12,11 +12,11 @@ class Tag extends Model
 
     public function images_tag()
     {
-        return $this->hasMany('MediaPhoto\galleryapp\model\Tags', 'id_img');
+        return $this->hasMany('MediaPhoto\galleryapp\model\Tag', 'id_img');
     }
 
     public function gallery_tag()
     {
-        return $this->hasMany('MediaPhoto\galleryapp\model\Tags', 'id_gallery');
+        return $this->hasMany('MediaPhoto\galleryapp\model\Tag', 'id_gallery');
     }
 }

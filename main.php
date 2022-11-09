@@ -7,7 +7,6 @@ require_once('vendor/autoload.php');
 use Faker\Factory;
 use Illuminate\Database\Capsule\Manager;
 
-
 $data = parse_ini_file("config/config.ini");
 
 $db = new Manager();
