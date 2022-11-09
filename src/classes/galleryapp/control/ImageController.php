@@ -13,6 +13,7 @@ class ImageController extends AbstractController
     public function execute(): void
     {
         if (isset($this->request->get['id'])) {
+
             $image = Image::where('id', "=", $this->request->get['id'])->first();
 
             $view = new ImageView($image);
