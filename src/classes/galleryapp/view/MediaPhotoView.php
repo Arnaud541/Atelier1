@@ -23,14 +23,32 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         ?>
             <nav id="navbar">
                 <a href="#">MediaPhoto</a>
+
                 <a href="#">Inscription</a>
                 <a href="#">Connexion</a>
             </nav>
-<?php
+        <?php
         }
     }
 
-    protected function makeBody()
+    public function renderFooter(): void
     {
+        ?>
+        <footer>crée par P A U L</footer>
+<?php
+    }
+
+    public function makeBody(): string
+    {
+
+        $content = $this->render();
+        $navbar = $this->renderNavbar();
+        $footer = $this->renderFooter();
+
+        $html = "<header>{$this->renderNavbar()}</header>";
+        $html .= "<section><article>$content</article></section>";
+        $html .= $footer;
+
+        return $html;
     }
 }
