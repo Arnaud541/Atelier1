@@ -8,7 +8,7 @@ use MediaPhoto\mf\view\Renderer;
 abstract class MediaPhotoView extends AbstractView implements Renderer
 {
 
-    public function render():string
+    public function render(): string
     {
         return " ";
     }
@@ -30,24 +30,25 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
                 <a href="#">Inscription</a>
                 <a href="#">Connexion</a>
             </nav>
-<?php
+        <?php
         }
     }
 
-    public function renderFooter():string{
-        return "<footer>crée par P A U L</footer>";
+    public function renderFooter(): void
+    {
+        ?>
+        <footer>crée par P A U L</footer>
+<?php
     }
 
-    protected function makeBody():string{
+    public function makeBody(): string
+    {
 
-        $content = $this->render();
-        $navbar = $this->renderNavbar();
-        $footer = $this->renderFooter();
 
-        $html = "<header>$navbar</header>";
-        $html .= "<section><article>$content</article></section>";
-        $html .= $footer;
+        $html = "<header>{$this->renderNavbar()}</header>";
+        $html .= "<section><article>{$this->render()}</article></section>";
+        $html .= $this->renderFooter();
+
         return $html;
     }
-
 }
