@@ -12,6 +12,7 @@ use Illuminate\Database\Capsule\Manager;
 use MediaPhoto\galleryapp\model\Gallery;
 use MediaPhoto\galleryapp\control\HomeController;
 use MediaPhoto\galleryapp\control\ImageController;
+use MediaPhoto\galleryapp\view\SignupView;
 
 $data = parse_ini_file("config/config.ini");
 
@@ -32,10 +33,14 @@ $db->bootEloquent(); /* établir la connexion */
 //     }
 // }
 
+// $test = new SignupView;
+// echo $test->render();
+
 $router = new Router();
 
 $router->addRoute('home', 'liste_gallerys', 'MediaPhoto\galleryapp\control\HomeController');
 $router->addRoute('view', 'view_gallery', 'MediaPhoto\galleryapp\control\GalleryController');
+$router->addRoute('inscription', 'signup', 'MediaPhoto\galleryapp\control\SignupController');
 
 $router->setDefaultRoute('liste_gallerys');
 
