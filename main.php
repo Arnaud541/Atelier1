@@ -32,8 +32,11 @@ $db->bootEloquent(); /* établir la connexion */
 //     }
 // }
 
+$router = new Router();
 
-$router->addRoute('home', 'liste_gallerys', 'HomeController');
-$router->addRoute('view', 'view_gallery', 'GalleryController');
+$router->addRoute('home', 'liste_gallerys', 'MediaPhoto\galleryapp\control\HomeController');
+$router->addRoute('view', 'view_gallery', 'MediaPhoto\galleryapp\control\GalleryController');
+
+$router->setDefaultRoute('liste_gallerys');
 
 $router->run();
