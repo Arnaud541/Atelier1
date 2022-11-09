@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@800&display=swap");
+@import url("./Normalize.css");
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#navbar {
+  background-color: #EEEEEE;
+}
+#navbar a {
+  font-family: Lato;
+}
+#navbar a:first-child {
+  font-family: Poppins;
+}/*# sourceMappingURL=MediaPhoto.css.map */
