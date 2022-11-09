@@ -1,7 +1,9 @@
 <?php
 
+namespace MediaPhoto\galleryapp\view;
+
 use MediaPhoto\mf\view\Renderer;
-use MediaPhoto\galleryapp\model\MediaPhotoView;
+use MediaPhoto\galleryapp\view\MediaPhotoView;
 
 class GalleryView extends MediaPhotoView implements Renderer
 {

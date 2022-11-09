@@ -12,17 +12,22 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
     {
 
         if (isset($_SESSION['user_profile'])) {
-            return '<nav id="navbar">
-                        <a href="#">MediaPhoto</a>
-                        <a href="#">Galerie</a>
-                        <a href="#">Deconnexion</a>
-                    </nav>';
+?>
+            <nav id="navbar">
+                <a href="#">MediaPhoto</a>
+                <a href="#">Galerie</a>
+                <a href="#">Deconnexion</a>
+            </nav>
+        <?php
         } else {
-            return '<nav id="navbar">
-                        <a href="#">MediaPhoto</a>
-                        <a href="#">Inscription</a>
-                        <a href="#">Connexion</a>
-                    </nav>';
+        ?>
+            <nav id="navbar">
+                <a href="#">MediaPhoto</a>
+                
+                <a href="#">Inscription</a>
+                <a href="#">Connexion</a>
+            </nav>
+<?php
         }
     }
 
@@ -30,9 +35,9 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         return "<footer>crée par P A U L</footer>";
     }
 
-    protected function makeBody():string{
+    public function makeBody():string{
 
-        $content = $this->render();
+        $content = $this-render();
         $navbar = $this->renderNavbar();
         $footer = $this->renderFooter();
 
@@ -43,5 +48,4 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         return $html;
     }
 
-    
 }
