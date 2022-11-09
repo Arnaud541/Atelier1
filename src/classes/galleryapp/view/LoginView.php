@@ -7,7 +7,7 @@ use MediaPhoto\galleryapp\model\User;
 class LoginView {
 
     public function __construct(){
-
+        
     }
 
 }
