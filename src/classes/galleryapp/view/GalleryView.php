@@ -9,7 +9,7 @@ class GalleryView extends MediaPhotoView implements Renderer {
 
         $images = $this->data;
 
-        return 
+        return "en cours";
         
     }
 }

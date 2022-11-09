@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaPhoto\galleryapp\view;
+
 use MediaPhoto\mf\view\Renderer;
 use MediaPhoto\galleryapp\view\MediaPhotoView;
 
