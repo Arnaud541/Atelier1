@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 
 require_once('vendor/autoload.php');
 
+use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\model\Tag;
 use MediaPhoto\galleryapp\model\User;
 use MediaPhoto\galleryapp\model\Image;
@@ -34,3 +35,5 @@ $db->bootEloquent(); /* établir la connexion */
 
 $router->addRoute('home', 'liste_gallerys', 'HomeController');
 $router->addRoute('view', 'view_gallery', 'GalleryController');
+
+$router->run();
