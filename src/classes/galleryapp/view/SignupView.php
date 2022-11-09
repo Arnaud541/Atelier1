@@ -2,7 +2,7 @@
 
 namespace MediaPhoto\galleryapp\view;
 
-use MediaPhoto\galleryapp\model\MediaPhotoView;
+use MediaPhoto\galleryapp\view\MediaPhotoView;
 use MediaPhoto\mf\view\Renderer;
 
 class SignupView extends MediaPhotoView implements Renderer
