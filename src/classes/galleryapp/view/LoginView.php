@@ -2,12 +2,18 @@
 
 namespace MediaPhoto\galleryapp\view;
 
-use MediaPhoto\galleryapp\model\User;
+use MediaPhoto\mf\view\Renderer;
 
-class LoginView {
+class LoginView extends MediaPhotoView implements Renderer
+{
 
-    public function __construct(){
-        
+    public function render(): string
+    {
+        return '<form action="" method="post">
+                    <h1>Connexion</h1><br/>
+                    <input type="text" name="pseudo" placeholder="Nom d\'utilisateur"><br/>
+                    <input type="text" name="password" placeholder="Mot de passe"><br/>
+                    <button type="submit">Se connecter</button>
+                </form>';
     }
-
 }
