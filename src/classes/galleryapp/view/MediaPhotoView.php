@@ -5,7 +5,7 @@ namespace MediaPhoto\galleryapp\view;
 use MediaPhoto\mf\view\AbstractView;
 use MediaPhoto\mf\view\Renderer;
 
-class MediaPhotoView extends AbstractView implements Renderer
+abstract class MediaPhotoView extends AbstractView implements Renderer
 {
 
     public function renderNavbar()
@@ -30,7 +30,7 @@ class MediaPhotoView extends AbstractView implements Renderer
         return "<footer>crée par P A U L</footer>";
     }
 
-    public function makeBody():string{
+    protected function makeBody():string{
 
         $content = $this->render();
         $navbar = $this->renderNavbar();
@@ -43,4 +43,5 @@ class MediaPhotoView extends AbstractView implements Renderer
         return $html;
     }
 
+    
 }

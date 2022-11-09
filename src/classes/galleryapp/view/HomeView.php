@@ -13,12 +13,25 @@ class HomeView extends MediaPhotoView implements Renderer{
         $html = "";
 
         foreach ($gallerys as $gallery){
+            echo $gallery->path;
+
 
             $url_gallery = $this->router->urlFor("view", ['id', $gallery->id]);
 
+
             $html .= "<a href='$url_gallery'>";
-            $html .= "<div><h1>" . $gallery->name . "<h1>";
-            $html .= "<img href='$gallery->path'>". "</a></div><br>";
+            
+            if (isset($gallery->images()->first()->path)){
+
+                $image = $gallery->images()->first()->path;
+
+                $html .= "<div><h1>" . $gallery->name . "<h1>";
+                $html .= "<img src='$image'>". "</a></div><br>";
+            }
+
+            else 
+                $html .= "<div><h1>" . $gallery->name . "<h1>";
+                $html .= "<div>" . $gallery->description . "</div></div>";
         }
 
         return $html;
