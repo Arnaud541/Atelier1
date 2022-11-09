@@ -8,9 +8,13 @@ use MediaPhoto\mf\view\Renderer;
 abstract class MediaPhotoView extends AbstractView implements Renderer
 {
 
+    public function render():string
+    {
+        return " ";
+    }
+
     public function renderNavbar()
     {
-
         if (isset($_SESSION['user_profile'])) {
 ?>
             <nav id="navbar">
@@ -23,7 +27,6 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         ?>
             <nav id="navbar">
                 <a href="#">MediaPhoto</a>
-                
                 <a href="#">Inscription</a>
                 <a href="#">Connexion</a>
             </nav>
@@ -35,7 +38,7 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         return "<footer>crée par P A U L</footer>";
     }
 
-    public function makeBody():string{
+    protected function makeBody():string{
 
         $content = $this->render();
         $navbar = $this->renderNavbar();
@@ -44,7 +47,6 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         $html = "<header>$navbar</header>";
         $html .= "<section><article>$content</article></section>";
         $html .= $footer;
-
         return $html;
     }
 
