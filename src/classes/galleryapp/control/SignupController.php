@@ -6,39 +6,42 @@ use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\view\SignupView;
 use MediaPhoto\mf\control\AbstractController;
 use MediaPhoto\galleryapp\auth\MediaPhotoAuthentification;
+use MediaPhoto\mf\exceptions\AuthentificationException;
 
 class SignupController extends AbstractController
 {
     public function execute(): void
     {
-        echo "coucou";
         switch ($this->request->method) {
             case 'GET':
                 $SignupView = new SignupView();
                 $SignupView->makePage();
                 break;
             case 'POST':
-                echo "coucou1";
-                if (isset($_POST["firstname"]) && !empty($_POST["firstname"]))
-                {
-                    echo "coucou2";
-                    if ($this->request->post['password'] === $this->request->post['confPass'] )
-                    {
-                    echo "coucou3";
-                        $pseudo = filter_var($this->request->post['pseudo'], FILTER_SANITIZE_SPECIAL_CHARS);
-                        $password = $this->request->post['password'];
-                        $firstname = filter_var($this->request->post['firstname'], FILTER_SANITIZE_SPECIAL_CHARS);
-                        $lastname = filter_var($this->request->post['lastname'], FILTER_SANITIZE_SPECIAL_CHARS);
-                        MediaPhotoAuthentification::register($pseudo, $password, $firstname, $lastname);
-                        echo 'ici';
-                        Router::executeRoute('home');
-                        
-                    }                    
-                } 
-                else 
-                {
-                    Router::executeRoute('inscription');
+                if (isset($this->request->post["firstname"]) && isset($this->request->post["lastname"]) && isset($this->request->post["password"]) && isset($this->request->post["pseudo"]) && isset($this->request->post["confPass"])) {
+                    if (!empty($this->request->post["firstname"]) && !empty($this->request->post["lastname"]) && !empty($this->request->post["password"]) && !empty($this->request->post["pseudo"]) && !empty($this->request->post["confPass"])) {
+                        if ($this->request->post['password'] === $this->request->post['confPass']) {
+                            $pseudo = filter_var($this->request->post['pseudo'], FILTER_SANITIZE_SPECIAL_CHARS);
+                            $password = $this->request->post['password'];
+                            $firstname = filter_var($this->request->post['firstname'], FILTER_SANITIZE_SPECIAL_CHARS);
+                            $lastname = filter_var($this->request->post['lastname'], FILTER_SANITIZE_SPECIAL_CHARS);
+                            MediaPhotoAuthentification::register($pseudo, $password, $firstname, $lastname);
+                            Router::executeRoute('home');
+                        } else {
+                            // throw new AuthentificationException("Mot de passe non égal.");
+                            $this->request->method = 'GET';
+                            $this->execute();
+                        }
+                    } else {
+                        // throw new AuthentificationException("Un champ est vide. Veuillez réessayer");
+                        $this->request->method = 'GET';
+                        $this->execute();
+                    }
+                } else {
+                    $this->request->method = 'GET';
+                    $this->execute();
                 }
+                break;
         }
     }
 }

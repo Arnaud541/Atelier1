@@ -11,12 +11,12 @@ class SignupView extends MediaPhotoView implements Renderer
     {
         return '<form action="" method="post">
                     <h1>Inscription</h1><br/>
-                    <input type="text" name="firstname"><br/>
-                    <input type="text" name="lastname"><br/>
-                    <input type="text" name="pseudo"><br/>
-                    <input type="text" name="password"><br/>
-                    <input type="text" name="confPass"><br/>
-                    <button type="submit">S inscrire</button>
+                    <input type="text" name="lastname" placeholder="Nom"><br/>
+                    <input type="text" name="firstname" placeholder="Prenom"><br/>
+                    <input type="text" name="pseudo" placeholder="Nom d\'utilisateur"><br/>
+                    <input type="text" name="password" placeholder="Mot de passe"><br/>
+                    <input type="text" name="confPass" placeholder="Confirmer le mot de passe"><br/>
+                    <button type="submit">S\'inscrire</button>
                 </form>';
     }
 }
