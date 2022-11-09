@@ -28,6 +28,3 @@ $db->bootEloquent(); /* établir la connexion */
 //         echo "<br>";
 //     }
 // }
-
-
-
