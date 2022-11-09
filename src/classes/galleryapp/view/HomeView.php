@@ -1,6 +1,7 @@
 <?php
 
 use MediaPhoto\mf\view\Renderer;
+use MediaPhoto\galleryapp\view\MediaPhotoView;
 
 class HomeView extends MediaPhotoView implements Renderer{
 
@@ -15,7 +16,9 @@ class HomeView extends MediaPhotoView implements Renderer{
 
             $html .= "<a href='$url_gallery'>";
             $html .= "<div><h1>" . $gallery->name . "<h1>";
-            $html .= "<img href='$gallery->path'>";
+            $html .= "<img href='$gallery->path'>". "</a></div><br>";
         }
+
+        return $html;
     }
 }

@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 
 require_once('vendor/autoload.php');
 
+use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\model\Tag;
 use MediaPhoto\galleryapp\model\User;
 use MediaPhoto\galleryapp\model\Image;
@@ -11,6 +12,7 @@ use Illuminate\Database\Capsule\Manager;
 use MediaPhoto\galleryapp\model\Gallery;
 use MediaPhoto\galleryapp\control\HomeController;
 use MediaPhoto\galleryapp\control\ImageController;
+use MediaPhoto\galleryapp\control\GalleryController;
 
 $data = parse_ini_file("config/config.ini");
 
@@ -31,6 +33,11 @@ $db->bootEloquent(); /* établir la connexion */
 //     }
 // }
 
+$router = new Router();
 
-$router->addRoute('home', 'liste_gallerys', 'HomeController');
-$router->addRoute('view', 'view_gallery', 'GalleryController');
+$router->addRoute('home', 'liste_gallerys', '\MediaPhoto\galleryapp\control\HomeController');
+$router->addRoute('view', 'view_gallery', '\MediaPhoto\galleryapp\control\GalleryController');
+
+$router->setDefaultRoute('liste_gallerys');
+
+$router->run();

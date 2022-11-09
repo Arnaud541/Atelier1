@@ -26,7 +26,12 @@ class MediaPhotoView extends AbstractView implements Renderer
         }
     }
 
-    public function makeBody()
-    {
+    public function renderFooter():string{
+        return "<footer>crée par P A U L</footer>";
     }
+
+    public function makeBody():void{
+
+    }
+
 }
