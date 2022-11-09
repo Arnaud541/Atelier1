@@ -11,7 +11,6 @@ class HomeController extends AbstractController
 
     public function execute(): void
     {
-
         $gallerys = Gallery::select()->get();
 
         $view = new HomeView($gallerys);

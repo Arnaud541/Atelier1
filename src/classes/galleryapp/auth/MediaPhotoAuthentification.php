@@ -3,9 +3,10 @@
 
 namespace MediaPhoto\galleryapp\auth;
 
+
+use MediaPhoto\galleryapp\model\User;
 use MediaPhoto\mf\auth\AbstractAuthentification;
 use MediaPhoto\mf\exceptions\AuthentificationException;
-use MediaPhoto\galleryapp\model\User;
 
 
 class MediaPhotoAuthentification extends AbstractAuthentification
@@ -13,7 +14,7 @@ class MediaPhotoAuthentification extends AbstractAuthentification
 
     public static function register(string $pseudo, string $password, string $firstname, string $lastname): void
     {
-
+        echo "ici";
         if (User::where('pseudo', $pseudo)->exists()) {
             throw new AuthentificationException("Un utilisateur existe déjà avec ce nom d'utilisateur.");
         } else {
