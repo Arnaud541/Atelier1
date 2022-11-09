@@ -1,17 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@800&display=swap");
 @import url("./Normalize.css");
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
 #navbar {
   background-color: #EEEEEE;
+  padding: 20px;
+  display: grid;
 }
 #navbar a {
   font-family: Lato;
+  width: 10vw;
+  text-align: center;
+  font-size: 1.5rem;
+  grid-row: 1;
+  grid-column: 8/10;
 }
 #navbar a:first-child {
+  font-size: 2rem;
   font-family: Poppins;
+  grid-column: 1/10;
+}
+#navbar a:last-child {
+  grid-column: 9/10;
 }/*# sourceMappingURL=MediaPhoto.css.map */
