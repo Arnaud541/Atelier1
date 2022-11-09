@@ -12,11 +12,11 @@ class Gallery extends Model
 
     public function user()
     {
-        return $this->belongsTo('MediaPhoto\galleryapp\model\User', 'id_user');
+        return $this->belongsTo('\MediaPhoto\galleryapp\model\User', 'id_user');
     }
 
     public function images()
     {
-        return $this->hasMany('MediaPhoto\galleryapp\model\Images', 'id_gallery');
+        return $this->hasMany('MediaPhoto\galleryapp\model\Image', 'id_gallery');
     }
 }

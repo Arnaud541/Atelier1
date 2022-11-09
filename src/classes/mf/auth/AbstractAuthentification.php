@@ -7,9 +7,6 @@ use MediaPhoto\mf\exceptions\AuthentificationException;
 abstract class AbstractAuthentification
 {
 
-    /* une constante pour le niveau le plus bas */
-    const ACCESS_LEVEL_NONE = -9999;
-
     /* la taille minimum des mot de passe */
     const MIN_PASSWORD_LENGTH = 6;
 
@@ -25,7 +22,6 @@ abstract class AbstractAuthentification
          *
          * Paramètre :
          *    $id : id de l'utilisateur
-         *    $level : son niveau d'accès
          * 
          */
 
