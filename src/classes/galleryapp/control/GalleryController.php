@@ -1,6 +1,9 @@
 <?php
 
+namespace MediaPhoto\galleryapp\control;
+
 use MediaPhoto\galleryapp\model\Gallery;
+use MediaPhoto\galleryapp\view\GalleryView;
 use MediaPhoto\mf\control\AbstractController;
 
 class GalleryController extends AbstractController
