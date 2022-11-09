@@ -8,45 +8,38 @@ use MediaPhoto\mf\view\Renderer;
 abstract class MediaPhotoView extends AbstractView implements Renderer
 {
 
-    public function render(): string
-    {
-        return " ";
-    }
 
-    public function renderNavbar()
+    public function renderNavbar():string
     {
         if (isset($_SESSION['user_profile'])) {
-?>
-            <nav id="navbar">
+           return  '<nav id="navbar">
                 <a href="#">MediaPhoto</a>
                 <a href="#">Galerie</a>
                 <a href="#">Deconnexion</a>
-            </nav>
-        <?php
+            </nav>';
         } else {
-        ?>
-            <nav id="navbar">
+
+            return '<nav id="navbar">
                 <a href="#">MediaPhoto</a>
                 <a href="#">Inscription</a>
                 <a href="#">Connexion</a>
-            </nav>
-        <?php
+            </nav>';
         }
     }
 
-    public function renderFooter(): void
+    public function renderFooter(): string
     {
-        ?>
-        <footer>crée par P A U L</footer>
-<?php
+        return "<footer>crée par P A U L</footer>";
     }
 
-    public function makeBody(): string
+    protected function makeBody(): string
     {
 
+        $header = $this->renderNavbar();
+        $content = $this->render();
 
-        $html = "<header>{$this->renderNavbar()}</header>";
-        $html .= "<section><article>{$this->render()}</article></section>";
+        $html = "<header>$header</header>";
+        $html .= "<section><article>$content</article></section>";
         $html .= $this->renderFooter();
 
         return $html;
