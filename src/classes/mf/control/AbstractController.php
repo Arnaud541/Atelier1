@@ -1,8 +1,8 @@
 <?php
 
-namespace Tweeter\mf\control;
+namespace MediaPhoto\mf\control;
 
-use Tweeter\mf\utils\HttpRequest;
+use MediaPhoto\mf\utils\HttpRequest;
 
 abstract class AbstractController
 {

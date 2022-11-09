@@ -1,0 +1,16 @@
+{ "name": "atelier/mediaphoto",
+  "description": "Galerie photo",
+  "type": "project",
+  
+  "autoload": {
+      "psr-4": {
+          "MediaPhoto\\" : "./src/classes/"
+      }
+  },
+  
+  "require": {
+      "illuminate/database": "*",
+      "phpunit/phpunit": "*",
+      "fakerphp/faker": "^1.20"
+  }
+}

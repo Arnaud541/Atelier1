@@ -1,8 +1,8 @@
 <?php
 
-namespace Tweeter\mf\auth;
+namespace MediaPhoto\mf\auth;
 
-use Tweeter\mf\exceptions\AuthentificationException;
+use MediaPhoto\mf\exceptions\AuthentificationException;
 
 abstract class AbstractAuthentification
 {

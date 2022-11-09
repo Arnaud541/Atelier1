@@ -1,9 +1,9 @@
 <?php
 
-namespace Tweeter\mf\router;
+namespace MediaPhoto\mf\router;
 
-use Tweeter\mf\router\AbstractRouter;
-use Tweeter\tweeterapp\auth\TweeterAuthentification;
+use MediaPhoto\mf\router\AbstractRouter;
+use MediaPhoto\mf\auth\AbstractAuthentification;
 
 class Router extends AbstractRouter
 {
@@ -25,7 +25,7 @@ class Router extends AbstractRouter
         if (isset($this->request->get["action"])) {
             $action = $this->request->get["action"];
             if (array_key_exists($action, self::$routes)) {
-                $access = TweeterAuthentification::checkAccessRight(self::$routes[$action][1]);
+                $access = AbstractAuthentification::checkAccessRight(self::$routes[$action][1]);
                 if ($access) {
                     $controller = new self::$routes[$action][0];
                     $controller->execute();
