@@ -12,26 +12,33 @@ class HomeView extends MediaPhotoView implements Renderer
     {
 
         $gallerys = $this->data;
+
+
         $html = "";
 
-        foreach ($gallerys as $gallery){
+        if (isset($_SESSION['user_profile'])) {
+            $url_home_gallery_public = $this->router->urlFor('home', ['mode' => 0]);
+            $url_home_gallery_private = $this->router->urlFor('home', ['mode' => 1]);
+            $html .= "<div><a href='$url_home_gallery_public'>Publique</a>/<a href='$url_home_gallery_private'>Privée</a></div>";
+        }
+
+
+        foreach ($gallerys as $gallery) {
 
             $url_gallery = $this->router->urlFor("view", ['id' => $gallery->id]);
 
 
-
-            if (isset($gallery->images()->first()->path)){
+            if ($gallery->images()->get()->isNotEmpty()) {
                 $image = $gallery->images()->first()->path;
 
-
-                $html .= "<a href='$url_gallery'>";
-                $html .= "<div><h1>" . $gallery->name . "<h1>";
-                $html .= "<img src='$image'>". "</a></div><div>$gallery->descript</div><br>";
-            }
-            else {
-                $html .= "<a href='$url_gallery'> </a>";
-                $html .= "<div><h1>" . $gallery->name . "<h1>";
-                $html .= "<div>" . $gallery->descript . "</div></div><br>";
+                $html .= "<a href='$url_gallery'>
+                            <div>
+                                <h1>$gallery->name</h1>
+                                <img src='$image'>
+                                <p>$gallery->descript</p>
+                            </div>
+                        </a>
+                        <br>";
             }
         }
 
