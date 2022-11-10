@@ -2,6 +2,8 @@
 
 namespace MediaPhoto\galleryapp\control;
 
+use MediaPhoto\mf\router\Router;
+use MediaPhoto\galleryapp\model\Tag;
 use MediaPhoto\galleryapp\model\Image;
 use MediaPhoto\galleryapp\model\Gallery;
 use MediaPhoto\mf\control\AbstractController;
@@ -21,20 +23,29 @@ class NewGalleryController extends AbstractController
                 $view->makePage();
                 break;
             case 'POST':
-                $gallery = new Gallery();
-                $gallery->id_user = AbstractAuthentification::connectedUser();
-                $gallery->
-                $gallery->save();
-                if (isset($this->request->post['name']) && isset($this->request->post['name']) && isset($this->request->post['path']) && isset($this->request->post['description'])) {
-                    $image = new Image();
-                    $image->name = $this->request->post['name'];
-                    $image->title = $this->request->post['name'];
-                    $image->descript = $this->request->post['description'];
-                    $image->id_gallery = $gallery->id;
-                    $image->save();
-                }
 
-                //mkdir("./img/qr/$token/", 0777);
+                if (isset($this->request->post['title']) && isset($this->request->post['description']) && isset($this->request->post['tags']) && isset($this->request->post['mode'])) {
+                    $gallery = new Gallery();
+                    $gallery->id_user = AbstractAuthentification::connectedUser();
+                    $gallery->name = $this->request->post['title'];
+                    $gallery->descript = $this->request->post['description'];
+                    $gallery->mode = (int)$this->request->post['mode'];
+                    $gallery->save();
+
+                    $tags = $this->request->post['tags'];
+                    $tags = explode(",", $tags);
+
+                    foreach ($tags as $word) {
+                        $tag = new Tag();
+                        $tag->id_img = $gallery->id;
+                        $tag->tag = "#" . $word;
+                        $tag->save();
+                    }
+                } else {
+                    $this->request->method = 'GET';
+                    $this->execute();
+                }
+                Router::executeRoute('create_image_view');
         }
     }
 }

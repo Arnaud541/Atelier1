@@ -3,8 +3,9 @@
 namespace MediaPhoto\galleryapp\control;
 
 use Exception;
-use MediaPhoto\galleryapp\model\Image;
+use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\model\Tag;
+use MediaPhoto\galleryapp\model\Image;
 use MediaPhoto\galleryapp\view\NewImageView;
 use MediaPhoto\mf\control\AbstractController;
 use MediaPhoto\mf\exceptions\NotExistException;
@@ -45,7 +46,7 @@ class NewImageController extends AbstractController
                         }
 
                         $tags = $this->request->post['tags'];
-                        $tags = explode(" ", $tags);
+                        $tags = explode(",", $tags);
 
 
                         $image = new Image();
@@ -61,9 +62,11 @@ class NewImageController extends AbstractController
                             $tag->tag = "#" . $tag->tag;
                             $tag->save();
                         }
+
+                        Router::executeRoute('gallery_view');
                     }
                 } else {
-                    throw new NotExistException("Un des champs n'ont pas été validé");
+                    throw new NotExistException("Un des champs n'a pas été validé");
                 }
                 break;
         }
