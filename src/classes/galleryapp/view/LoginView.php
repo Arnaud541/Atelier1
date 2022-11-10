@@ -3,6 +3,7 @@
 namespace MediaPhoto\galleryapp\view;
 
 use MediaPhoto\mf\view\Renderer;
+use MediaPhoto\mf\view\AbstractView;
 
 class LoginView extends MediaPhotoView implements Renderer
 {
