@@ -13,16 +13,21 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
     {
         if (isset($_SESSION['user_profile'])) {
             return  '<nav id="navbar">
-                        <a href="#">MediaPhoto</a>
-                        <a href="#">Galerie</a>
+                        <a href="main.php">MediaPhoto</a>
+                        <li>Galeries <i class="fas fa-angle-down"></i>
+                            <ul>
+                                <a href=""><li>Opt 1</li></a>
+                                <a href=""><li>Opt 2</li></a> 
+                            </ul>
+                        </li>
                         <a href="#">Deconnexion</a>
                     </nav>';
         } else {
 
             return '<nav id="navbar">
-                        <a href="#">MediaPhoto</a>
-                        <a href="#">Inscription</a>
-                        <a href="#">Connexion</a>
+                        <a href="main.php">MediaPhoto</a>
+                        <a href="main.php?action=signup">Inscription</a>
+                        <a href="main.php?action=login">Connexion</a>
                     </nav>';
         }
     }
