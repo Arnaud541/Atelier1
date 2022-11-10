@@ -26,6 +26,7 @@ class NewGalleryView extends MediaPhotoView implements Renderer
                             <label for='public'>Publique</label>
                         </div>
                     </div>
+                    <button type='submit'>Enregistrer</button>
                 </form>";
     }
 }
