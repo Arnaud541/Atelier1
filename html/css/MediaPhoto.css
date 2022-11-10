@@ -19,6 +19,9 @@
   font-family: Poppins;
   grid-column: 1/10;
 }
+#navbar a:first-child:hover {
+  background-color: #EEEEEE;
+}
 #navbar a:last-child {
   grid-column: 9/10;
 }
