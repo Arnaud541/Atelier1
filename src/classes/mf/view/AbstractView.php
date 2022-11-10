@@ -161,7 +161,7 @@ abstract class AbstractView
          *  Noter l'utilisation des variables ${title} ${style} et ${body}
          * 
          */
-
+        echo $styles;
         $html = <<<EOT
 <!DOCTYPE html>
 <html lang="fr">
@@ -170,6 +170,7 @@ abstract class AbstractView
         <meta charset="utf-8">
         <title>${title}</title>
 	    ${styles}
+        
     </head>
 
     <body>

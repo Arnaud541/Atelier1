@@ -11,6 +11,6 @@ class LogoutController extends AbstractController
     public function execute(): void
     {
         AbstractAuthentification::logout();
-        Router::executeRoute('home');
+        Router::executeRoute('home_view');
     }
 }

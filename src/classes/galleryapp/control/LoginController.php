@@ -20,7 +20,7 @@ class LoginController extends AbstractController
                         $password = $this->request->post['password'];
 
                         MediaPhotoAuthentification::login($pseudo, $password);
-                        Router::executeRoute('home');
+                        Router::executeRoute('home_view');
                     } else {
                         $this->request->method = 'GET';
                         $this->execute();

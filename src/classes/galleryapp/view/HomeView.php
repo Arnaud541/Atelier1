@@ -17,15 +17,15 @@ class HomeView extends MediaPhotoView implements Renderer
         $html = "";
 
         if (isset($_SESSION['user_profile'])) {
-            $url_home_gallery_public = $this->router->urlFor('home', ['mode' => 0]);
-            $url_home_gallery_private = $this->router->urlFor('home', ['mode' => 1]);
+            $url_home_gallery_public = $this->router->urlFor('home_view', ['mode' => 0]);
+            $url_home_gallery_private = $this->router->urlFor('home_view', ['mode' => 1]);
             $html .= "<div><a href='$url_home_gallery_public'>Publique</a>/<a href='$url_home_gallery_private'>Privée</a></div>";
         }
 
 
         foreach ($gallerys as $gallery) {
 
-            $url_gallery = $this->router->urlFor("view", ['id' => $gallery->id]);
+            $url_gallery = $this->router->urlFor("gallery_view", ['id' => $gallery->id]);
 
 
             if ($gallery->images()->get()->isNotEmpty()) {

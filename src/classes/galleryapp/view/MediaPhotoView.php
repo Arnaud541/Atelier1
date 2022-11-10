@@ -8,9 +8,17 @@ use MediaPhoto\mf\view\Renderer;
 abstract class MediaPhotoView extends AbstractView implements Renderer
 {
 
-
     public function renderNavbar(): string
     {
+
+        $login = $this->router->urlFor('login_view');
+        $signup = $this->router->urlFor('signup_view');
+        $home = $this->router->urlFor('home_view');
+        $logout = $this->router->urlFor('logout_view');
+
+        echo $home;
+
+
         if (isset($_SESSION['user_profile'])) {
             return  '<nav id="navbar">
                         <a href="main.php">MediaPhoto</a>
