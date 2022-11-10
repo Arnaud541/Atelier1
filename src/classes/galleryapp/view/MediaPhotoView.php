@@ -16,7 +16,7 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         $home = $this->router->urlFor('home_view');
         $logout = $this->router->urlFor('logout_view');
 
-        echo $home;
+        //echo $home;
 
 
         if (isset($_SESSION['user_profile'])) {
@@ -42,7 +42,7 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
 
     public function renderFooter(): string
     {
-        return "<footer>crée par P A U L</footer>";
+        return '<footer><a href="main.php?action=about">A propos</a></footer>';
     }
 
     protected function makeBody(): string

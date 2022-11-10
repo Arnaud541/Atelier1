@@ -50,4 +50,11 @@
 }
 #navbar li:hover > ul {
   display: block;
+}
+
+footer {
+  background-color: #EEEEEE;
+  padding: 20px;
+  font-size: large;
+  text-align: center;
 }/*# sourceMappingURL=MediaPhoto.css.map */
