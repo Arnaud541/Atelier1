@@ -19,5 +19,4 @@ class Gallery extends Model
     {
         return $this->hasMany('MediaPhoto\galleryapp\model\Image', 'id_gallery');
     }
-
 }
