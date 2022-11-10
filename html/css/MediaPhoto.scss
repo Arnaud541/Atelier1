@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@800&display=swap'); // font-family : Poppins; font-family : Lato;
 @import url('./Normalize.css');
+:root {
+    background-color: #C6C6C6;
+}
+
+.red_button {
+    padding: 20px;
+    background-color: #FF6262;
+    color: white;
+    border: none;
+    width: calc(100vw / 5);
+    font-size: 1.25rem;
+    border-radius: 2vh;
+    &:hover {
+        background-color: lighten($color: #FF6262, $amount: 5);
+        cursor: pointer;
+    }
+}
+
 #navbar {
     background-color: #EEEEEE;
     padding: 20px;
@@ -16,6 +34,9 @@
             font-size: 2rem;
             font-family: Poppins;
             grid-column: 1/10;
+            &:hover {
+                background-color: #EEEEEE;
+            }
         }
         &:last-child {
             grid-column: 9/10;
@@ -44,12 +65,38 @@
             width: 10vw;
         }
         &:hover {
-            &:hover {
-                background-color: #C6C6C6;
-            }
+            background-color: #C6C6C6;
             &>ul {
                 display: block;
             }
         }
+    }
+}
+
+#login {
+    width: 100vw;
+    text-align: center;
+    font-family: Lato;
+    &>h1 {
+        font-weight: normal;
+        color: #676767;
+        font-size: 1.75rem;
+    }
+    input {
+        border: none;
+        width: calc(100vw / 4);
+        font-size: 1.25rem;
+        border-radius: 10px;
+        background-color: white;
+        color: #676767;
+        margin-bottom: 3vh;
+        padding: 20px;
+        &:hover,
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        @extend .red_button;
     }
 }

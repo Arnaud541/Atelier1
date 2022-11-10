@@ -16,7 +16,7 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         $home = $this->router->urlFor('home_view');
         $logout = $this->router->urlFor('logout_view');
 
-        echo $home;
+        //echo $home;
 
 
         if (isset($_SESSION['user_profile'])) {

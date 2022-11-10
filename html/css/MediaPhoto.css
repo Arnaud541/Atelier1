@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@800&display=swap");
 @import url("./Normalize.css");
+:root {
+  background-color: #C6C6C6;
+}
+
+.red_button, #login button {
+  padding: 20px;
+  background-color: #FF6262;
+  color: white;
+  border: none;
+  width: 20vw;
+  font-size: 1.25rem;
+  border-radius: 2vh;
+}
+.red_button:hover, #login button:hover {
+  background-color: #ff7c7c;
+  cursor: pointer;
+}
+
 #navbar {
   background-color: #EEEEEE;
   padding: 20px;
@@ -18,6 +36,9 @@
   font-size: 2rem;
   font-family: Poppins;
   grid-column: 1/10;
+}
+#navbar a:first-child:hover {
+  background-color: #EEEEEE;
 }
 #navbar a:last-child {
   grid-column: 9/10;
@@ -45,9 +66,33 @@
   background-color: #d9d9d9;
   width: 10vw;
 }
-#navbar li:hover:hover {
+#navbar li:hover {
   background-color: #C6C6C6;
 }
 #navbar li:hover > ul {
   display: block;
+}
+
+#login {
+  width: 100vw;
+  text-align: center;
+  font-family: Lato;
+}
+#login > h1 {
+  font-weight: normal;
+  color: #676767;
+  font-size: 1.75rem;
+}
+#login input {
+  border: none;
+  width: 25vw;
+  font-size: 1.25rem;
+  border-radius: 10px;
+  background-color: white;
+  color: #676767;
+  margin-bottom: 3vh;
+  padding: 20px;
+}
+#login input:hover, #login input:focus {
+  outline: none;
 }/*# sourceMappingURL=MediaPhoto.css.map */
