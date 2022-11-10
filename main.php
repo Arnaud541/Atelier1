@@ -45,6 +45,7 @@ $router->addRoute('signup_view', 'signup', 'MediaPhoto\galleryapp\control\Signup
 $router->addRoute('create_gallery_view', 'new_gallery', 'MediaPhoto\galleryapp\control\NewGalleryController');
 $router->addRoute('login_view', 'login', 'MediaPhoto\galleryapp\control\LoginController');
 $router->addRoute('logout_view', 'logout', 'MediaPhoto\galleryapp\control\LogoutController');
+$router->addRoute('image_view', 'image', 'MediaPhoto\galleryapp\control\ImageController');
 
 $router->setDefaultRoute('liste_gallerys');
 

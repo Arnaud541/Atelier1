@@ -13,8 +13,6 @@ class GalleryView extends MediaPhotoView implements Renderer
         $images = $this->data;
         $galleryName = $images[0]->gallery()->first()->name;
 
-
-
         $content = "<div>
                         <h2>$galleryName</h2>
                         <div>
@@ -24,7 +22,11 @@ class GalleryView extends MediaPhotoView implements Renderer
         } else {
 
             foreach ($images as $image) {
-                $content .= "<div><img alt={$image->title} src={$image->path}></div>";
+
+                $id = $image->id;
+                $url_image = $this->router->urlFor("image_view", ['id' => $id]);
+
+                $content .= "<div><a href='$url_image'><img alt={$image->title} src={$image->path}></a></div>";
             }
             $content .= "</div></div>";
         }
