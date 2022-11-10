@@ -21,6 +21,7 @@ class NewGalleryController extends AbstractController
             case 'GET':
                 $view = new NewGalleryView();
                 $view->makePage();
+                break;
             case 'POST':
 
                 if (isset($this->request->post['title']) && isset($this->request->post['description']) && isset($this->request->post['tags']) && isset($this->request->post['mode'])) {
