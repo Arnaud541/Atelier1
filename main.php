@@ -1,6 +1,7 @@
 <link href='html/css/MediaPhoto.css' rel='stylesheet'>
 <script src="https://kit.fontawesome.com/78c89b2e03.js" crossorigin="anonymous"></script>
 <?php
+session_start();
 
 ini_set('display_errors', 1);
 
