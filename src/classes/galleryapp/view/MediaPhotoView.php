@@ -20,25 +20,23 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
 
 
         if (isset($_SESSION['user_profile'])) {
-            return  "<nav id='navbar'>
-                        <a href='${home}'>MediaPhoto</a>
-                        <ul>
-                            <li class='drop_down_menu' href='#'><a href='#'>Gallery</a>
-                                <ul class'menu'>
-                                <li><a href='#'>Mes galeries</a></li>
-                                <li><a href='#'>Créer une galerie</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <a href='${logout}'>Deconnexion</a>
-                    </nav>";
+            return  '<nav id="navbar">
+                        <a href="main.php">MediaPhoto</a>
+                        <li>Galeries <i class="fas fa-angle-down"></i>
+                            <ul>
+                                <a href=""><li>Mes Galeries</li></a>
+                                <a href=""><li>Créer Galerie</li></a> 
+                            </ul>
+                        </li>
+                        <a href="#">Deconnexion</a>
+                    </nav>';
         } else {
 
-            return "<nav id='navbar'>
-                        <a href='${home}'>MediaPhoto</a>
-                        <a href='${signup}'>Inscription</a>
-                        <a href='${login}'>Connexion</a>
-                    </nav>";
+            return '<nav id="navbar">
+                        <a href="main.php">MediaPhoto</a>
+                        <a href="main.php?action=signup">Inscription</a>
+                        <a href="main.php?action=login">Connexion</a>
+                    </nav>';
         }
     }
 

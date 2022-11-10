@@ -19,9 +19,11 @@ class NewGalleryController extends AbstractController
             case 'GET':
                 $view = new NewGalleryView();
                 $view->makePage();
+                break;
             case 'POST':
                 $gallery = new Gallery();
                 $gallery->id_user = AbstractAuthentification::connectedUser();
+                $gallery->
                 $gallery->save();
                 if (isset($this->request->post['name']) && isset($this->request->post['name']) && isset($this->request->post['path']) && isset($this->request->post['description'])) {
                     $image = new Image();
@@ -31,6 +33,8 @@ class NewGalleryController extends AbstractController
                     $image->id_gallery = $gallery->id;
                     $image->save();
                 }
+
+                //mkdir("./img/qr/$token/", 0777);
         }
     }
 }

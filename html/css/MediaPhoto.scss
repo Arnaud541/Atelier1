@@ -5,6 +5,7 @@
     padding: 20px;
     display: grid;
     a {
+        transition: 500ms;
         font-family: Lato;
         width: 10vw;
         text-align: center;
@@ -18,6 +19,37 @@
         }
         &:last-child {
             grid-column: 9/10;
+        }
+        &:hover {
+            background-color: #C6C6C6;
+        }
+    }
+    li {
+        list-style-type: none;
+        font-family: Lato;
+        width: 10vw;
+        text-align: center;
+        font-size: 1.5rem;
+        grid-row: 1;
+        grid-column: 8/10;
+        position: relative;
+        &>ul {
+            padding-left: 0;
+            display: none;
+            position: absolute;
+            z-index: 50;
+            top: 10px;
+            transition: 500ms;
+            background-color: #d9d9d9;
+            width: 10vw;
+        }
+        &:hover {
+            &:hover {
+                background-color: #C6C6C6;
+            }
+            &>ul {
+                display: block;
+            }
         }
     }
 }

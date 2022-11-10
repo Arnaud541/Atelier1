@@ -13,8 +13,6 @@ class GalleryController extends AbstractController
     {
         $idGallery = $this->request->get['id'];
 
-        $_SESSION['idGallery'] = $this->request->get['id'];
-
         $gallery = Gallery::where('id', '=', $idGallery)->first();
 
         $images = $gallery->images()->get();
