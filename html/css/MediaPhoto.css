@@ -6,6 +6,7 @@
   display: grid;
 }
 #navbar a {
+  transition: 500ms;
   font-family: Lato;
   width: 10vw;
   text-align: center;
@@ -20,4 +21,34 @@
 }
 #navbar a:last-child {
   grid-column: 9/10;
+}
+#navbar a:hover {
+  background-color: #C6C6C6;
+}
+#navbar li {
+  list-style-type: none;
+  font-family: Lato;
+  width: 10vw;
+  text-align: center;
+  font-size: 1.5rem;
+  grid-row: 1;
+  grid-column: 8/10;
+}
+#navbar li > ul {
+  display: none;
+  position: absolute;
+  z-index: 50;
+  top: 1.5rem;
+  transition: 500ms;
+  background-color: #d9d9d9;
+  width: 10vw;
+}
+#navbar li:hover:hover {
+  background-color: #C6C6C6;
+}
+#navbar li:hover > ul {
+  display: block;
+}
+#navbar li:hover > ul:hover {
+  background-color: #C6C6C6;
 }/*# sourceMappingURL=MediaPhoto.css.map */

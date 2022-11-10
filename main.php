@@ -1,3 +1,5 @@
+<link href='html/css/MediaPhoto.css' rel='stylesheet'>
+<script src="https://kit.fontawesome.com/78c89b2e03.js" crossorigin="anonymous"></script>
 <?php
 session_start();
 ini_set('display_errors', 1);
@@ -5,6 +7,7 @@ ini_set('display_errors', 1);
 require_once('vendor/autoload.php');
 
 use MediaPhoto\mf\router\Router;
+use MediaPhoto\mf\view\Renderer;
 use MediaPhoto\galleryapp\model\Tag;
 use MediaPhoto\galleryapp\model\User;
 use MediaPhoto\galleryapp\model\Image;
@@ -45,5 +48,6 @@ $router->addRoute('connexion', 'login', 'MediaPhoto\galleryapp\control\LoginCont
 $router->addRoute('deconnexion', 'logout', 'MediaPhoto\galleryapp\control\LogoutController');
 
 $router->setDefaultRoute('liste_gallerys');
+
 
 $router->run();
