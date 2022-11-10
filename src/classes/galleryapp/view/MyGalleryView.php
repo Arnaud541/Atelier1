@@ -15,7 +15,7 @@ class MyGalleryView extends MediaPhotoView implements Renderer
 
         foreach($gallerys as $gallery){
 
-        $url_gallery = $this->router->urlFor("gallery_view", ['id' => $gallery->id]);
+        $url_gallery = $this->router->urlFor("edit_gallery_view", ['id' => $gallery->id]);
 
         if ($gallery->images()->get()->isNotEmpty()) {
             $image = $gallery->images()->first()->path;

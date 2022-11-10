@@ -14,7 +14,9 @@ class MyGalleryController extends AbstractController
     public function execute(): void
     {
 
-        $user = User::select()->where('id', '=', AbstractAuthentification::connectedUser())->first();
+        //$user = User::select()->where('id', '=', AbstractAuthentification::connectedUser())->first();
+
+        $user = User::select()->where('id','=', 2)->first();
 
         $gallerys = $user->gallery()->get();
 
