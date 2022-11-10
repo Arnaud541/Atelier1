@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 ini_set('display_errors', 1);
 
 require_once('vendor/autoload.php');
@@ -33,16 +33,14 @@ $db->bootEloquent(); /* établir la connexion */
 //     }
 // }
 
-
+// $test = new SignupView;
+// echo $test->render();
 
 $router = new Router();
 
 $router->addRoute('home', 'liste_gallerys', 'MediaPhoto\galleryapp\control\HomeController');
 $router->addRoute('view', 'view_gallery', 'MediaPhoto\galleryapp\control\GalleryController');
 $router->addRoute('inscription', 'signup', 'MediaPhoto\galleryapp\control\SignupController');
-$router->addRoute('create_view', 'new_gallery', 'MediaPhoto\galleryapp\control\NewGalleryController');
-$router->addRoute('connexion', 'login', 'MediaPhoto\galleryapp\control\LoginController');
-$router->addRoute('deconnexion', 'logout', 'MediaPhoto\galleryapp\control\LogoutController');
 
 $router->setDefaultRoute('liste_gallerys');
 
