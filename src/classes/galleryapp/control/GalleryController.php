@@ -11,16 +11,13 @@ class GalleryController extends AbstractController
 
     public function execute(): void
     {
-        $idGallery = $this->request->get['id'];
+        if (isset($this->request->get['id'])) {
+            $_SESSION['idGallery'] = $this->request->get['id'];
+        }
 
-        $_SESSION['idGallery'] = $this->request->get['id'];
-
-        $gallery = Gallery::where('id', '=', $idGallery)->first();
-
+        $gallery = Gallery::where('id', '=', $_SESSION['idGallery'])->first();
         $images = $gallery->images()->get();
-
         $GalleryView = new GalleryView($images);
-
         $GalleryView->makePage();
     }
 }

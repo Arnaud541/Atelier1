@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 ini_set('display_errors', 1);
 
@@ -44,6 +45,7 @@ $router->addRoute('signup_view', 'signup', 'MediaPhoto\galleryapp\control\Signup
 $router->addRoute('create_gallery_view', 'new_gallery', 'MediaPhoto\galleryapp\control\NewGalleryController');
 $router->addRoute('login_view', 'login', 'MediaPhoto\galleryapp\control\LoginController');
 $router->addRoute('logout_view', 'logout', 'MediaPhoto\galleryapp\control\LogoutController');
+$router->addRoute('create_image_view', 'new_image', 'MediaPhoto\galleryapp\control\NewImageController');
 
 $router->setDefaultRoute('liste_gallerys');
 
