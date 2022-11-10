@@ -53,9 +53,18 @@
         }
     }
 }
+html{
+    background-color: #CECECE;
+}
+section{
+    min-height: calc(100vh - 3rem - 110px );
+}
 footer{
     background-color: #EEEEEE;
     padding: 20px;
-    font-size: large;
+    font-size: 1rem;
     text-align: center;
 }
+// #pos{
+//     min-height: 66%;   
+// }
