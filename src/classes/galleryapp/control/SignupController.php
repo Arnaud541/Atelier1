@@ -26,7 +26,7 @@ class SignupController extends AbstractController
                             $firstname = filter_var($this->request->post['firstname'], FILTER_SANITIZE_SPECIAL_CHARS);
                             $lastname = filter_var($this->request->post['lastname'], FILTER_SANITIZE_SPECIAL_CHARS);
                             MediaPhotoAuthentification::register($pseudo, $password, $firstname, $lastname);
-                            Router::executeRoute('home');
+                            Router::executeRoute('home_view');
                         } else {
                             // throw new AuthentificationException("Mot de passe non égal.");
                             $this->request->method = 'GET';
