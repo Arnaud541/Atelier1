@@ -24,8 +24,8 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
                         <a href="main.php">MediaPhoto</a>
                         <li>Galeries <i class="fas fa-angle-down"></i>
                             <ul>
-                                <a href=""><li>Opt 1</li></a>
-                                <a href=""><li>Opt 2</li></a> 
+                                <a href=""><li>Mes Galeries</li></a>
+                                <a href=""><li>Créer Galerie</li></a> 
                             </ul>
                         </li>
                         <a href="#">Deconnexion</a>

@@ -33,12 +33,14 @@
   font-size: 1.5rem;
   grid-row: 1;
   grid-column: 8/10;
+  position: relative;
 }
 #navbar li > ul {
+  padding-left: 0;
   display: none;
   position: absolute;
   z-index: 50;
-  top: 1.5rem;
+  top: 10px;
   transition: 500ms;
   background-color: #d9d9d9;
   width: 10vw;
@@ -48,7 +50,4 @@
 }
 #navbar li:hover > ul {
   display: block;
-}
-#navbar li:hover > ul:hover {
-  background-color: #C6C6C6;
 }/*# sourceMappingURL=MediaPhoto.css.map */
