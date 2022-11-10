@@ -15,7 +15,7 @@ class NewGalleryView extends MediaPhotoView implements Renderer
                     <h1>Crée une nouvelle galerie</h1>
                     <input type='text' name='title' placeholder='Titre'><br>
                     <textarea type='text' name='description' placeholder='Description'></textarea><br>
-                    <input type='text' name='tags' placeholder='Tags'><br>
+                    <input type='text' name='tags' placeholder='tag1,tag2...'><br>
                     <div>
                         <div>
                             <input type='radio' id='private' name='mode' value='1' checked>

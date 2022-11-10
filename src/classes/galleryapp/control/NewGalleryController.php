@@ -41,8 +41,10 @@ class NewGalleryController extends AbstractController
                         $tag->tag = "#" . $word;
                         $tag->save();
                     }
+                } else {
+                    $this->request->method = 'GET';
+                    $this->execute();
                 }
-
                 Router::executeRoute('create_image_view');
         }
     }
