@@ -4,8 +4,10 @@ namespace MediaPhoto\galleryapp\control;
 
 use Exception;
 use MediaPhoto\galleryapp\model\Image;
+use MediaPhoto\galleryapp\model\Tag;
 use MediaPhoto\galleryapp\view\NewImageView;
 use MediaPhoto\mf\control\AbstractController;
+use MediaPhoto\mf\exceptions\NotExistException;
 
 class NewImageController extends AbstractController
 {
@@ -42,18 +44,27 @@ class NewImageController extends AbstractController
                             }
                         }
 
+                        $tags = $this->request->post['tags'];
+                        $tags = explode(" ", $tags);
+
+
                         $image = new Image();
                         $image->id_gallery = $_SESSION['idGallery'];
                         $image->title = $this->request->post['title'];
                         $image->path = $path;
                         $image->descript = $this->request->post['data'];
                         $image->save();
-                    }
-                }
-                break;
 
-            default:
-                # code...
+                        foreach ($tags as $tag) {
+                            $tag = new Tag();
+                            $tag->id_img = $image->id;
+                            $tag->tag = "#" . $tag->tag;
+                            $tag->save();
+                        }
+                    }
+                } else {
+                    throw new NotExistException("Un des champs n'ont pas été validé");
+                }
                 break;
         }
     }
