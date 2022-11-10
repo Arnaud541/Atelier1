@@ -2,13 +2,11 @@
 
 namespace MediaPhoto\galleryapp\control;
 
-use Exception;
 use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\model\Tag;
 use MediaPhoto\galleryapp\model\Image;
 use MediaPhoto\galleryapp\view\NewImageView;
 use MediaPhoto\mf\control\AbstractController;
-use MediaPhoto\mf\exceptions\NotExistException;
 
 class NewImageController extends AbstractController
 {
@@ -20,7 +18,8 @@ class NewImageController extends AbstractController
                 $newImageView->makePage();
                 break;
             case 'POST':
-                if (isset($this->request->post['title']) && isset($this->request->post['data']) && isset($this->request->post['tags']) && isset($_FILES['photo'])) {
+                if (isset($this->request->post['title']) && isset($this->request->post['data']) && isset($this->request->post['tags'])) {
+                    echo $_FILES['photo']['error'];
                     if (!empty($this->request->post['title']) && !empty($this->request->post['data']) && !empty($this->request->post['tags']) && $_FILES['photo']['error'] == 0) {
                         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
                         $filename = $_FILES["photo"]["name"];
@@ -39,15 +38,10 @@ class NewImageController extends AbstractController
                                     } else {
                                         move_uploaded_file($filetmpname, "../html/images/" . $filename);
                                         $path = "../html/images/" . $filename;
-                                        echo "Votre fichier a été téléchargé avec succès.";
                                     }
                                 }
                             }
                         }
-
-                        $tags = $this->request->post['tags'];
-                        $tags = explode(",", $tags);
-
 
                         $image = new Image();
                         $image->id_gallery = $_SESSION['idGallery'];
@@ -56,17 +50,21 @@ class NewImageController extends AbstractController
                         $image->descript = $this->request->post['data'];
                         $image->save();
 
-                        foreach ($tags as $tag) {
+                        $tags = $this->request->post['tags'];
+                        $tags = explode(",", $tags);
+
+                        foreach ($tags as $word) {
                             $tag = new Tag();
                             $tag->id_img = $image->id;
-                            $tag->tag = "#" . $tag->tag;
+                            $tag->tag = "#" . $word;
                             $tag->save();
                         }
 
                         Router::executeRoute('gallery_view');
                     }
                 } else {
-                    throw new NotExistException("Un des champs n'a pas été validé");
+                    $this->request->method = 'GET';
+                    $this->execute();
                 }
                 break;
         }

@@ -13,7 +13,6 @@ use MediaPhoto\mf\auth\AbstractAuthentification;
 class NewGalleryController extends AbstractController
 {
 
-
     public function execute(): void
     {
 
@@ -23,7 +22,6 @@ class NewGalleryController extends AbstractController
                 $view->makePage();
                 break;
             case 'POST':
-
                 if (isset($this->request->post['title']) && isset($this->request->post['description']) && isset($this->request->post['tags']) && isset($this->request->post['mode'])) {
                     $gallery = new Gallery();
                     $gallery->id_user = AbstractAuthentification::connectedUser();
@@ -37,13 +35,14 @@ class NewGalleryController extends AbstractController
 
                     foreach ($tags as $word) {
                         $tag = new Tag();
-                        $tag->id_img = $gallery->id;
+                        $tag->id_gallery = $gallery->id;
                         $tag->tag = "#" . $word;
                         $tag->save();
                     }
-                }
 
-                Router::executeRoute('create_image_view');
+                    Router::executeRoute('create_image_view');
+                }
+                break;
         }
     }
 }

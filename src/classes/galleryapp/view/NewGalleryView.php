@@ -11,8 +11,8 @@ class NewGalleryView extends MediaPhotoView implements Renderer
     public function render(): string
     {
 
-        return "<form action='' method='POST'>
-                    <h1>Crée une nouvelle galerie</h1>
+        return "<h1>Crée une nouvelle galerie</h1>
+                <form action='' method='POST'>        
                     <input type='text' name='title' placeholder='Titre'><br>
                     <textarea type='text' name='description' placeholder='Description'></textarea><br>
                     <input type='text' name='tags' placeholder='Tags'><br>
