@@ -16,6 +16,9 @@
             font-size: 2rem;
             font-family: Poppins;
             grid-column: 1/10;
+            &:hover{
+                background-color: #EEEEEE;
+            }
         }
         &:last-child {
             grid-column: 9/10;

@@ -16,7 +16,6 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         $home = $this->router->urlFor('home_view');
         $logout = $this->router->urlFor('logout_view');
 
-        echo $home;
 
 
         if (isset($_SESSION['user_profile'])) {
@@ -24,11 +23,11 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
                         <a href="main.php">MediaPhoto</a>
                         <li>Galeries <i class="fas fa-angle-down"></i>
                             <ul>
-                                <a href=""><li>Mes Galeries</li></a>
-                                <a href=""><li>Créer Galerie</li></a> 
+                                <a href="main.php?action=view_my_gallery"><li>Mes Galeries</li></a>
+                                <a href="main.php?action=new_gallery"><li>Créer Galerie</li></a> 
                             </ul>
                         </li>
-                        <a href="#">Deconnexion</a>
+                        <a href="main.php?action=logout">Deconnexion</a>
                     </nav>';
         } else {
 

@@ -13,8 +13,10 @@ class NewGalleryView extends MediaPhotoView implements Renderer
 
         return "<form action='' method='post'>
                 <h1>Crée une nouvelle galerie</h1>
-                <input type='text' name='title' placeholder='Titre'><br>
-                <textarea type='text' name='data' placeholder='Description'></textarea><br>
+                <input type='text' name='name' placeholder='Titre'><br>
+                <textarea type='text' name='descript' placeholder='Description'></textarea><br>
+                <button type='submit'>Créer</button>
+
              </form>";
     }
 }
