@@ -50,7 +50,9 @@ $router->addRoute('login_view', 'login', 'MediaPhoto\galleryapp\control\LoginCon
 $router->addRoute('logout_view', 'logout', 'MediaPhoto\galleryapp\control\LogoutController');
 $router->addRoute('create_image_view', 'new_image', 'MediaPhoto\galleryapp\control\NewImageController');
 $router->addRoute('image_view', 'image', 'MediaPhoto\galleryapp\control\ImageController');
+$router->addRoute('edit_gallery_view', 'edit_gallery_view', 'MediaPhoto\galleryapp\control\EditGalleryController');
 $router->addRoute('my_gallery_view', 'view_my_gallery', 'MediaPhoto\galleryapp\control\MyGalleryController');
+$router->addRoute('delet_image', 'delet_image', 'MediaPhoto\galleryapp\control\DeletImageController');
 //$router->addRoute('about_view', 'about', 'MediaPhoto\galleryapp\control\AboutController');
 
 $router->setDefaultRoute('liste_gallerys');
