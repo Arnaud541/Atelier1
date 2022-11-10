@@ -22,6 +22,7 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         if (isset($_SESSION['user_profile'])) {
             return  '<nav id="navbar">
                         <a href="main.php">MediaPhoto</a>
+                        <div></div>
                         <li>Galeries <i class="fas fa-angle-down"></i>
                             <ul>
                                 <a href="main.php?action=view_my_gallery"><li>Mes Galeries</li></a>
@@ -34,6 +35,7 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
 
             return '<nav id="navbar">
                         <a href="main.php">MediaPhoto</a>
+                        <div></div>
                         <a href="main.php?action=signup">Inscription</a>
                         <a href="main.php?action=login">Connexion</a>
                     </nav>';

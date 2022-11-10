@@ -10,14 +10,15 @@ class ImageView extends MediaPhotoView implements Renderer
     public function render(): string
     {
         $image = $this->data;
+        $html = "";
 
         $html = "<div>
-                    <h1>$image->title</h1>
-                    <img src='$image->path'>
-                    <div>$image->descript</div>
+                <h1>$image->title</h1>
+                <img src='$image->path'>
+                <div>$image->descript</div>
                 </div>";
+        
 
-
-        return $html;
+                return $html;
     }
 }

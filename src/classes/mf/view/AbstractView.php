@@ -161,7 +161,7 @@ abstract class AbstractView
          *  Noter l'utilisation des variables ${title} ${style} et ${body}
          * 
          */
-        //echo $styles;
+        echo $styles;
         $html = <<<EOT
 <!DOCTYPE html>
 <html lang="fr">
