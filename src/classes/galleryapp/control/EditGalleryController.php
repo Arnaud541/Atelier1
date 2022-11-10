@@ -20,7 +20,6 @@ class EditGalleryController extends AbstractController
         $gallery = Gallery::where('id', '=', $_SESSION['idGallery'])->first();
         $images = $gallery->images()->get();
 
-        var_dump($images);
 
         if ($images->isEmpty()){
             Router::executeRoute("my_gallery_view");

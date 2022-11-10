@@ -14,16 +14,12 @@ class DeletImageController extends AbstractController{
 
     public function execute():void{
 
-        echo $this->request->get['id'];
 
         $image = Image::select()->where('id', '=', $this->request->get['id'])->first();
 
-        echo $image;
-        echo "<br>";
 
         $gallery = Gallery::where('id', '=', $image->id_gallery)->first();
 
-        echo $gallery;
 
         $image->delete();
         $images = $gallery->images()->get();
