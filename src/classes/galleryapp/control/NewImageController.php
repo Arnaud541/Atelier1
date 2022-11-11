@@ -19,26 +19,21 @@ class NewImageController extends AbstractController
                 break;
             case 'POST':
                 if (isset($this->request->post['title']) && isset($this->request->post['data']) && isset($this->request->post['tags'])) {
-                    echo $_FILES['photo']['error'];
                     if (!empty($this->request->post['title']) && !empty($this->request->post['data']) && !empty($this->request->post['tags']) && $_FILES['photo']['error'] == 0) {
                         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
                         $filename = $_FILES["photo"]["name"];
                         $filetype = $_FILES["photo"]["type"];
-                        $filesize = $_FILES["photo"]["size"];
                         $filetmpname = $_FILES["photo"]["tmp_name"];
 
                         $ext = pathinfo($filename, PATHINFO_EXTENSION);
                         if (array_key_exists($ext, $allowed)) {
 
-                            $maxsize = 5 * 1024 * 1024;
-                            if ($filesize < $maxsize) {
-                                if (in_array($filetype, $allowed)) {
-                                    if (file_exists("../html/images/" . $filename)) {
-                                        echo $filename . " existe déjà.";
-                                    } else {
-                                        move_uploaded_file($filetmpname, "../html/images/" . $filename);
-                                        $path = "../html/images/" . $filename;
-                                    }
+                            if (in_array($filetype, $allowed)) {
+                                if (file_exists("/var/www/html/Atelier1/html/images/" . $filename)) {
+                                    echo $filename . " existe déjà.";
+                                } else {
+                                    move_uploaded_file($filetmpname, "/var/www/html/Atelier1/html/images/" . $filename);
+                                    $path = "./html/images/" . $filename;
                                 }
                             }
                         }
@@ -59,8 +54,11 @@ class NewImageController extends AbstractController
                             $tag->tag = "#" . $word;
                             $tag->save();
                         }
+
+                        Router::executeRoute('my_gallery_view');
                     }
                 } else {
+                    print_r($_FILES);
                     $this->request->method = 'GET';
                     $this->execute();
                 }

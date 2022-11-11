@@ -9,8 +9,9 @@ class NewImageView extends MediaPhotoView implements Renderer
 {
     public function render(): string
     {
+        $ajoutImage = $this->router->urlFor("create_image_view");
         return "<h1>Ajouter une image</h1>
-                <form action='' method='POST'>
+                <form action='$ajoutImage' method='POST' enctype='multipart/form-data'>
                     <input type='text' name='title' placeholder='Titre'><br>
                     <input type='text' name='data' placeholder='Données techniques'><br>
                     <input type='text' name='tags' placeholder='Tags'><br>

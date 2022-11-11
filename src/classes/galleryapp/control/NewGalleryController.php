@@ -30,6 +30,8 @@ class NewGalleryController extends AbstractController
                     $gallery->mode = (int)$this->request->post['mode'];
                     $gallery->save();
 
+                    $_SESSION['idGallery'] = $gallery->id;
+
                     $tags = $this->request->post['tags'];
                     $tags = explode(",", $tags);
 
