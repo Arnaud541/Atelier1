@@ -14,7 +14,7 @@ class NewImageView extends MediaPhotoView implements Renderer
                 <form action='$ajoutImage' method='POST' enctype='multipart/form-data'>
                     <input type='text' name='title' placeholder='Titre'><br>
                     <input type='text' name='data' placeholder='Données techniques'><br>
-                    <input type='text' name='tags' placeholder='Tags'><br>
+                    <input type='text' name='tags' placeholder='Tag1,Tag2...'><br>
                     <input type='file' name='photo' placeholder='Choisir une image...'><br>
                     <button type='submit'>Ajouter</button>
                 </form>";

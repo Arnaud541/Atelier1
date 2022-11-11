@@ -42,6 +42,7 @@ abstract class AbstractAuthentification
          */
 
         unset($_SESSION['user_profile']);
+        unset($_SESSION['idGallery']);
     }
 
 

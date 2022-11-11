@@ -55,10 +55,9 @@ class NewImageController extends AbstractController
                             $tag->save();
                         }
 
-                        Router::executeRoute('my_gallery_view');
+                        Router::executeRoute('edit_gallery_view');
                     }
                 } else {
-                    print_r($_FILES);
                     $this->request->method = 'GET';
                     $this->execute();
                 }

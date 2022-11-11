@@ -21,14 +21,11 @@ class EditGalleryController extends AbstractController
         $images = $gallery->images()->get();
 
 
-        if ($images->isEmpty()){
+        if ($images->isEmpty()) {
             Router::executeRoute("my_gallery_view");
         }
 
-        $this->request->method = 'GET';
         $GalleryView = new EditGalleryView($images);
         $GalleryView->makePage();
     }
-
-
 }
