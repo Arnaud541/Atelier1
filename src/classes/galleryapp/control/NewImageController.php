@@ -7,6 +7,7 @@ use MediaPhoto\galleryapp\model\Tag;
 use MediaPhoto\galleryapp\model\Image;
 use MediaPhoto\galleryapp\view\NewImageView;
 use MediaPhoto\mf\control\AbstractController;
+use MediaPhoto\mf\view\AbstractView;
 
 class NewImageController extends AbstractController
 {
@@ -14,6 +15,7 @@ class NewImageController extends AbstractController
     {
         switch ($this->request->method) {
             case 'GET':
+                AbstractView::addStyleSheet('html/css/NewImage.css');
                 $newImageView = new NewImageView();
                 $newImageView->makePage();
                 break;

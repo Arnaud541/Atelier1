@@ -25,8 +25,8 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
                         <div></div>
                         <li>Galeries <i class="fas fa-angle-down"></i>
                             <ul>
-                                <a href="main.php?action=view_my_gallery"><li>Mes Galeries</li></a>
-                                <a href="main.php?action=new_gallery"><li>Créer Galerie</li></a> 
+                                <a href="main.php?action=view_my_gallery"><li>Mes galeries</li></a>
+                                <a href="main.php?action=new_gallery"><li>Créer une galerie</li></a> 
                             </ul>
                         </li>
                         <a href="main.php?action=logout">Deconnexion</a>
@@ -54,7 +54,7 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
         $content = $this->render();
 
         $html = "<header>$header</header>";
-        $html .= "<section><article>$content</article></section>";
+        $html .= "<section>$content</section>";
         $html .= $this->renderFooter();
 
         return $html;

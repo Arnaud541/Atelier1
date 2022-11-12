@@ -3,15 +3,17 @@
 namespace MediaPhoto\galleryapp\control;
 
 use MediaPhoto\mf\router\Router;
+use MediaPhoto\mf\view\AbstractView;
 use MediaPhoto\galleryapp\view\SignupView;
 use MediaPhoto\mf\control\AbstractController;
-use MediaPhoto\galleryapp\auth\MediaPhotoAuthentification;
 use MediaPhoto\mf\exceptions\AuthentificationException;
+use MediaPhoto\galleryapp\auth\MediaPhotoAuthentification;
 
 class SignupController extends AbstractController
 {
     public function execute(): void
     {
+        AbstractView::addStyleSheet('html/css/Authentification.css');
         switch ($this->request->method) {
             case 'GET':
                 $SignupView = new SignupView();

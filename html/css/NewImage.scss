@@ -1,0 +1,22 @@
+@import 'Form';
+
+#inputfile {
+	display: none;
+
+    & + label {
+        color: white;
+        height: 3em;
+        width: 50%;
+        background-color: #8C8C8C;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        cursor: pointer;
+
+        & > i {
+            margin-right: 10px;
+        }
+    }
+}

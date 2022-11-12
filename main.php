@@ -1,5 +1,5 @@
-<link href='html/css/MediaPhoto.css' rel='stylesheet'>
 <script src="https://kit.fontawesome.com/78c89b2e03.js" crossorigin="anonymous"></script>
+<script src="html/js/app.js"></script>
 <?php
 session_start();
 
@@ -38,7 +38,7 @@ $db->bootEloquent(); /* établir la connexion */
 //     }
 // }
 
-AbstractView::addStyleSheet('html/css/ddMenu.css');
+AbstractView::addStyleSheet('html/css/MediaPhoto.css');
 
 $router = new Router();
 

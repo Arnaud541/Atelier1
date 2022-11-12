@@ -11,14 +11,15 @@ class NewGalleryView extends MediaPhotoView implements Renderer
     public function render(): string
     {
 
-        return "<h1>Crée une nouvelle galerie</h1>
-                <form action='' method='POST'>        
-                    <input type='text' name='title' placeholder='Titre'><br>
-                    <textarea type='text' name='description' placeholder='Description'></textarea><br>
-                    <input type='text' name='tags' placeholder='Tags'><br>
-                    <div>
+        return "
+                <form action='' method='POST'>
+                    <h1>Créer une nouvelle galerie</h1>       
+                    <input type='text' name='title' placeholder='Titre'>
+                    <textarea type='text' name='description' placeholder='Description'></textarea>
+                    <input type='text' name='tags' placeholder='Tag1, Tag2...'>
+                    <div class='mode'>
                         <div>
-                            <input type='radio' id='private' name='mode' value='1' checked>
+                            <input type='radio' id='private' name='mode' value='1'>
                             <label for='private'>Privée</label>
                         </div>
                         <div>
@@ -26,7 +27,7 @@ class NewGalleryView extends MediaPhotoView implements Renderer
                             <label for='public'>Publique</label>
                         </div>
                     </div>
-                    <button type='submit'>Enregistrer</button>
+                    <button class='submit' type='submit'>Enregistrer</button>
                 </form>";
     }
 }

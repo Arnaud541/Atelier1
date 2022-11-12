@@ -4,18 +4,18 @@ namespace MediaPhoto\galleryapp\control;
 
 use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\model\Tag;
-use MediaPhoto\galleryapp\model\Image;
 use MediaPhoto\galleryapp\model\Gallery;
 use MediaPhoto\mf\control\AbstractController;
 use MediaPhoto\galleryapp\view\NewGalleryView;
 use MediaPhoto\mf\auth\AbstractAuthentification;
+use MediaPhoto\mf\view\AbstractView;
 
 class NewGalleryController extends AbstractController
 {
 
     public function execute(): void
     {
-
+        AbstractView::addStyleSheet('html/css/NewGallery.css');
         switch ($this->request->method) {
             case 'GET':
                 $view = new NewGalleryView();
