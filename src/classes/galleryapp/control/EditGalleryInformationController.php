@@ -4,6 +4,7 @@ namespace MediaPhoto\galleryapp\control;
 
 use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\model\Tag;
+use MediaPhoto\mf\view\AbstractView;
 use MediaPhoto\galleryapp\model\Gallery;
 use MediaPhoto\mf\control\AbstractController;
 use MediaPhoto\galleryapp\view\EditGalleryInformationView;
@@ -14,6 +15,7 @@ class EditGalleryInformationController extends AbstractController
     {
         switch ($this->request->method) {
             case 'GET':
+                AbstractView::addStyleSheet('html/css/NewGallery.css');
                 $gallery = Gallery::find($this->request->get['id']);
                 $editGalleryInformationView = new EditGalleryInformationView($gallery);
                 $editGalleryInformationView->makePage();

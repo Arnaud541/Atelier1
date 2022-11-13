@@ -1,4 +1,5 @@
 const private = document.getElementById("private");
+console.log("test");
 console.log(private);
 const public = document.getElementById("public");
 const btn = document.querySelector(".submit");

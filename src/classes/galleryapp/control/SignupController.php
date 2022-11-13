@@ -13,7 +13,7 @@ class SignupController extends AbstractController
 {
     public function execute(): void
     {
-        AbstractView::addStyleSheet('html/css/Authentification.css');
+        AbstractView::addStyleSheet('html/css/Form.css');
         switch ($this->request->method) {
             case 'GET':
                 $SignupView = new SignupView();
