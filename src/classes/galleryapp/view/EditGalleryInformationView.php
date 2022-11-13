@@ -19,12 +19,13 @@ class EditGalleryInformationView extends MediaPhotoView implements Renderer
         }
         $tags_word = implode(',', $tags_word);
 
-        return "<h1>Modifier la galerie</h1>
-                <form action='' method='POST'>        
-                    <input type='text' name='title' placeholder='Titre' value='$gallery->name'><br>
-                    <textarea type='text' name='description' placeholder='Description'>$gallery->descript</textarea><br>
-                    <input type='text' name='tags' placeholder='Tag1,Tag2...' value='$tags_word'><br>
-                    <div>
+        return "
+                <form action='' method='POST'>
+                    <h1>Modifier la galerie</h1>     
+                    <input type='text' name='title' placeholder='Titre' value='$gallery->name'>
+                    <textarea type='text' name='description' placeholder='Description'>$gallery->descript</textarea>
+                    <input type='text' name='tags' placeholder='Tag1,Tag2...' value='$tags_word'>
+                    <div class='mode'>
                         <div>
                             <input type='radio' id='private' name='mode' value='1' checked>
                             <label for='private'>Privée</label>
@@ -35,7 +36,8 @@ class EditGalleryInformationView extends MediaPhotoView implements Renderer
                         </div>
                     </div>
                     <input type='hidden' name='id_gallery' value='$gallery->id'>
-                    <button type='submit'>Modifier</button>
-                </form>";
+                    <button class='submit' type='submit'>Modifier</button>
+                </form>
+                <script src='html/js/app.js'></script>";
     }
 }

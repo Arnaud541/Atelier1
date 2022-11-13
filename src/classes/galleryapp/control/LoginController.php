@@ -31,7 +31,7 @@ class LoginController extends AbstractController
                 } else {
                     $this->request->method = 'GET';
                     $this->execute();
-                    throw new AuthentificationException("Il manque des choses");
+                    throw new AuthentificationException("Il manque des informations");
                 }
                 break;
             case 'GET':

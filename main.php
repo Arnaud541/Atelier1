@@ -1,5 +1,5 @@
 <script src="https://kit.fontawesome.com/78c89b2e03.js" crossorigin="anonymous"></script>
-<script src="html/js/app.js"></script>
+
 <?php
 session_start();
 

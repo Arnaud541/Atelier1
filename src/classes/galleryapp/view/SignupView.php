@@ -14,8 +14,8 @@ class SignupView extends MediaPhotoView implements Renderer
                     <input type="text" name="lastname" placeholder="Nom">
                     <input type="text" name="firstname" placeholder="Prenom">
                     <input type="text" name="pseudo" placeholder="Nom d\'utilisateur">
-                    <input type="text" name="password" placeholder="Mot de passe">
-                    <input type="text" name="confPass" placeholder="Confirmer le mot de passe">
+                    <input type="password" name="password" placeholder="Mot de passe">
+                    <input type="password" name="confPass" placeholder="Confirmer le mot de passe">
                     <button type="submit">S\'inscrire</button>
                 </form>';
     }
