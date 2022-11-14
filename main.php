@@ -59,6 +59,3 @@ $router->addRoute('about_view', 'about', 'MediaPhoto\galleryapp\control\AboutCon
 $router->setDefaultRoute('liste_gallerys');
 
 $router->run();
-
-
-

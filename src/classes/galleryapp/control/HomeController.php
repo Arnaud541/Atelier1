@@ -28,9 +28,11 @@ class HomeController extends AbstractController
                         break;
                     case 1:
                         $vipAccess = VIPAccess::select()->where('id_user', '=', AbstractAuthentification::connectedUser())->first();
-                        echo $vipAccess;
-                        $gallerys = $vipAccess->accessGallery()->get();
-                        echo $gallerys;
+                        if ($vipAccess != null){
+                            $gallerys = $vipAccess->accessGallery()->get();
+                        } else{
+                            $gallerys = [];
+                        }
                         // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PRIVATE)->limit($itemsPerPage)->get();
                         break;
                 }
