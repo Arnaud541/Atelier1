@@ -16,7 +16,7 @@ class MediaPhotoAuthentification extends AbstractAuthentification
     public static function register(string $pseudo, string $password, string $firstname, string $lastname): void
     {
         if (User::where('pseudo', $pseudo)->exists()) {
-            throw new AuthentificationException("Un utilisateur existe déjà avec ce nom d'utilisateur.");
+            //throw new AuthentificationException("Un utilisateur existe déjà avec ce nom d'utilisateur.");
         } else {
             $user = new User();
             $user->pseudo = $pseudo;
