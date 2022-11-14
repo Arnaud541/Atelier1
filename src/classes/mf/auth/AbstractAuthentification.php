@@ -2,6 +2,7 @@
 
 namespace MediaPhoto\mf\auth;
 
+use MediaPhoto\mf\router\Router;
 use MediaPhoto\mf\exceptions\AuthentificationException;
 
 abstract class AbstractAuthentification

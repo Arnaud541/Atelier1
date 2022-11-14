@@ -29,6 +29,7 @@ class LoginController extends AbstractController
                     } else {
                         $this->request->method = 'GET';
                         $this->execute();
+                        break;
                     }
                 } else {
                     $this->request->method = 'GET';
