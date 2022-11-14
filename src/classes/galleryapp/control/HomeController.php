@@ -33,7 +33,7 @@ class HomeController extends AbstractController
                         $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
                         break;
                     case 1:
-                        $gallerys = Gallery::select()->join('VIPAccess', 'VIPAccess.id_gallery','=','Gallery.id')->where('VIPAccess.id_user', '=', AbstractAuthentification::connectedUser())->get();
+                        $gallerys = Gallery::select('id', 'Gallery.id_user', 'name', 'descript', 'mode', 'created_at', 'updated_at')->join('VIPAccess', 'VIPAccess.id_gallery','=','Gallery.id')->where('VIPAccess.id_user', '=', AbstractAuthentification::connectedUser())->get();
                         //var_dump($gallerys);
                         // if ($vipAccess != null) {
                         //     $gallerys = $vipAccess->accessGallery()->get();
