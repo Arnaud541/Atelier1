@@ -1,5 +1,5 @@
 <script src="https://kit.fontawesome.com/78c89b2e03.js" crossorigin="anonymous"></script>
-<script src="html/js/app.js"></script>
+
 <?php
 session_start();
 
@@ -54,7 +54,7 @@ $router->addRoute('edit_gallery_view', 'edit_gallery_view', 'MediaPhoto\gallerya
 $router->addRoute('my_gallery_view', 'view_my_gallery', 'MediaPhoto\galleryapp\control\MyGalleryController');
 $router->addRoute('delete_image_view', 'delete_image', 'MediaPhoto\galleryapp\control\DeleteImageController');
 $router->addRoute('edit_gallery_information_view', 'edit_gallery_information', 'MediaPhoto\galleryapp\control\EditGalleryInformationController');
-//$router->addRoute('about_view', 'about', 'MediaPhoto\galleryapp\control\AboutController');
+$router->addRoute('about_view', 'about', 'MediaPhoto\galleryapp\control\AboutController');
 
 $router->setDefaultRoute('liste_gallerys');
 

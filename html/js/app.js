@@ -1,25 +1,23 @@
 const private = document.getElementById("private");
-console.log(private);
 const public = document.getElementById("public");
 const btn = document.querySelector(".submit");
-const parentNode = document.querySelector(".mode");
+const form = document.querySelector("form");
 
 function enableButton() {
   if (public.checked) {
-    if (document.getElementsByClassName("users")) {
-      document.getElementsByClassName("users").remove();
+    if (document.querySelector(".users")) {
+      document.querySelector(".users").remove();
     }
   }
 
   if (private.checked) {
-    alert("test");
     let node = document.createElement("input");
     node.type = "text";
     node.placeholder = "Ajouter des utilisateurs...";
     node.name = "users";
     node.classList.add("users");
 
-    parentNode.insertBefore(node, btn);
+    form.insertBefore(node, btn);
   }
 }
 

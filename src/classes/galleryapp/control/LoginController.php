@@ -13,7 +13,7 @@ class LoginController extends AbstractController
 {
     public function execute(): void
     {
-        AbstractView::addStyleSheet('html/css/Authentification.css');
+        AbstractView::addStyleSheet('html/css/Form.css');
         switch ($this->request->method) {
             case 'POST':
                 if (isset($this->request->post['pseudo']) && isset($this->request->post['password'])) {
@@ -31,7 +31,7 @@ class LoginController extends AbstractController
                 } else {
                     $this->request->method = 'GET';
                     $this->execute();
-                    throw new AuthentificationException("Il manque des choses");
+                    throw new AuthentificationException("Il manque des informations");
                 }
                 break;
             case 'GET':

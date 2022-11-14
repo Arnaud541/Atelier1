@@ -28,6 +28,7 @@ class NewGalleryView extends MediaPhotoView implements Renderer
                         </div>
                     </div>
                     <button class='submit' type='submit'>Enregistrer</button>
-                </form>";
+                </form>
+                <script src='html/js/app.js'></script>";
     }
 }
