@@ -4,6 +4,20 @@
   background-color: #C6C6C6;
 }
 
+.red_button {
+  padding: 20px;
+  background-color: #FF6262;
+  color: white;
+  border: none;
+  width: 20vw;
+  font-size: 1.25rem;
+  border-radius: 2vh;
+}
+.red_button:hover {
+  background-color: #ff7c7c;
+  cursor: pointer;
+}
+
 #navbar {
   background-color: #EEEEEE;
   display: flex;
@@ -14,7 +28,7 @@
 #navbar > a {
   transition: 500ms;
   padding: 20px;
-  font-family: Lato;
+  font-family: "Lato", sans-serif;
   text-align: center;
   font-size: 1.5rem;
 }
@@ -69,6 +83,10 @@
   left: 0;
   background-color: #FF6262;
   z-index: 200;
+}
+
+section {
+  min-height: calc(100vh - 3.5rem - 80px);
 }
 
 footer {
