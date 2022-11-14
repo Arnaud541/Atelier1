@@ -9,8 +9,8 @@ use MediaPhoto\galleryapp\model\User;
 use MediaPhoto\galleryapp\model\Gallery;
 use MediaPhoto\galleryapp\model\VIPAccess;
 use MediaPhoto\mf\control\AbstractController;
-use MediaPhoto\galleryapp\view\EditGalleryInformationView;
 use MediaPhoto\mf\exceptions\NotExistException;
+use MediaPhoto\galleryapp\view\EditGalleryInformationView;
 
 class EditGalleryInformationController extends AbstractController
 {
@@ -58,7 +58,7 @@ class EditGalleryInformationController extends AbstractController
                                 $vipAccess->id_gallery = $gallery->id;
                                 $vipAccess->save();
                             } else {
-                                //throw new NotExistException("Utilisateur non trouvé.");
+                                throw new NotExistException("Utilisateur non trouvé.");
                             }
                         }
                     }

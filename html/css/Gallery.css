@@ -1,12 +1,11 @@
-section {
-  display: block;
-}
-
 section > .container-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 2em;
+  -moz-column-gap: 2em;
+       column-gap: 2em;
   margin-bottom: 2em;
+  color: #524F4F;
   font-family: "Lato", sans-serif;
 }
 section > .container-grid > a {
@@ -56,4 +55,10 @@ section > .mode > a:last-child {
 #vide {
   font-family: "Lato";
   text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  section .container-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }/*# sourceMappingURL=Gallery.css.map */

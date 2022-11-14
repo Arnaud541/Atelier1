@@ -29,18 +29,19 @@ class HomeController extends AbstractController
             if (isset($this->request->get['mode'])) {
                 switch ($this->request->get['mode']) {
                     case 0:
-                        $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
+                        $currentPage = (int)($page ?? 1);
+                        $offset = $itemsPerPage * ($currentPage - 1);
+                        $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
+                        $totalItems = count($gallerys);
+                        $totalPages = ceil($totalItems / $itemsPerPage);
                         break;
                     case 1:
-                        $gallerys = Gallery::select()->join('VIPAccess', 'VIPAccess.id_gallery','=','Gallery.id')->where('VIPAccess.id_user', '=', AbstractAuthentification::connectedUser())->get();
-                        //var_dump($gallerys);
-                        // if ($vipAccess != null) {
-                        //     $gallerys = $vipAccess->accessGallery()->get();
-                        //     var_dump($vipAccess);
-                            
-                        // } else {
-                        //     $gallerys = [];
-                        // }
+                        $vipAccess = VIPAccess::select()->where('id_user', '=', AbstractAuthentification::connectedUser())->first();
+                        if ($vipAccess != null) {
+                            $gallerys = $vipAccess->accessGallery()->get();
+                        } else {
+                            $gallerys = [];
+                        }
                         // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PRIVATE)->limit($itemsPerPage)->get();
                         break;
                 }

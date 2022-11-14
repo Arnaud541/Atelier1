@@ -15,7 +15,7 @@ class GalleryView extends MediaPhotoView implements Renderer
 
         $content = "<div>
                         <h2>$galleryName</h2>
-                        <div>
+                        <div class='container-grid'>
                     ";
         if (count($images) == 0) {
             $content .= "<h1>Aucune image dans la galerie</h1>";
@@ -26,7 +26,7 @@ class GalleryView extends MediaPhotoView implements Renderer
                 $id = $image->id;
                 $url_image = $this->router->urlFor("image_view", ['id' => $id]);
 
-                $content .= "<div><a href='$url_image'><img alt={$image->title} src={$image->path}></a></div>";
+                $content .= "<div class='gallery'><a href='$url_image'><img alt={$image->title} src={$image->path}></a></div>";
             }
             $content .= "</div></div>";
         }
