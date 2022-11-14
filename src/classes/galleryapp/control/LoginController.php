@@ -21,17 +21,19 @@ class LoginController extends AbstractController
                         $pseudo = filter_var($this->request->post['pseudo'], FILTER_SANITIZE_SPECIAL_CHARS);
                         $password = $this->request->post['password'];
 
-                        MediaPhotoAuthentification::login($pseudo, $password);
+                        if (!MediaPhotoAuthentification::login($pseudo, $password)) {
+                            $this->request->method = 'GET';
+                            $this->execute();
+                        }
                         Router::executeRoute('home_view');
                     } else {
                         $this->request->method = 'GET';
                         $this->execute();
-                        Router::executeRoute('login_view');
                     }
                 } else {
                     $this->request->method = 'GET';
                     $this->execute();
-                    Router::executeRoute('login_view');
+                    break;
                 }
                 break;
             case 'GET':

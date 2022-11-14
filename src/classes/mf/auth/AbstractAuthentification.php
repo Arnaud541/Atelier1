@@ -6,7 +6,6 @@ use MediaPhoto\mf\exceptions\AuthentificationException;
 
 abstract class AbstractAuthentification
 {
-
     /* la taille minimum des mot de passe */
     const MIN_PASSWORD_LENGTH = 6;
 
