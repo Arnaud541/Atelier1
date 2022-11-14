@@ -16,6 +16,11 @@ section > div:first-child > a:last-child {
   color: #867F7F;
 }
 
+#vide {
+  font-family: "Lato";
+  text-align: center;
+}
+
 .container-grid {
   display: grid;
   justify-items: center;
