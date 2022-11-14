@@ -1,49 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 section {
   display: block;
-  min-height: 100%;
 }
 
-section > div:first-child {
-  display: inline-block;
-  background: #524F4F;
-  padding: 1em;
-  font-family: "Lato";
-  color: #fff;
-  font-weight: 400;
-  border-radius: 10px;
-}
-section > div:first-child > a:last-child {
-  color: #867F7F;
-}
-
-#vide {
-  font-family: "Lato";
-  text-align: center;
-}
-
-.container-grid {
+section > .container-grid {
   display: grid;
-  justify-items: center;
   grid-template-columns: repeat(2, 1fr);
   row-gap: 2em;
   margin-bottom: 2em;
   font-family: "Lato", sans-serif;
 }
-.container-grid > a {
-  width: 700px;
+section > .container-grid > a {
+  display: inline-block;
 }
-.container-grid > a > .gallery {
+section > .container-grid > a > .gallery {
   display: flex;
   background-color: #D9D9D9;
   border-radius: 20px;
   padding: 20px;
+  max-width: 700px;
   align-items: center;
 }
-.container-grid > a > .gallery > .gallery-description {
+section > .container-grid > a > .gallery > .gallery-description {
   margin-left: 4em;
 }
-.container-grid > a > .gallery > img {
+section > .container-grid > a > .gallery > img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -57,5 +37,23 @@ section > div:first-child > a:last-child {
   font-size: 1.5rem;
 }
 #pages > a {
+  text-align: center;
+}
+
+section > .mode {
+  display: inline-block;
+  background: #524F4F;
+  padding: 1em;
+  font-family: "Lato";
+  color: #fff;
+  font-weight: 400;
+  border-radius: 10px;
+}
+section > .mode > a:last-child {
+  color: #867F7F;
+}
+
+#vide {
+  font-family: "Lato";
   text-align: center;
 }/*# sourceMappingURL=Gallery.css.map */
