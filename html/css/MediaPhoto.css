@@ -139,10 +139,9 @@ section {
 }
 
 footer {
-  font-family: "Lato";
+  font-family: "Lato", sans-serif;
   background-color: #EEEEEE;
   padding: 20px;
-}
-footer:hover, footer:focus {
-  outline: none;
+  font-size: 1rem;
+  text-align: center;
 }/*# sourceMappingURL=MediaPhoto.css.map */
