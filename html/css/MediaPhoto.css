@@ -4,20 +4,6 @@
   background-color: #C6C6C6;
 }
 
-.red_button {
-  padding: 20px;
-  background-color: #FF6262;
-  color: white;
-  border: none;
-  width: 20vw;
-  font-size: 1.25rem;
-  border-radius: 2vh;
-}
-.red_button:hover {
-  background-color: #ff7c7c;
-  cursor: pointer;
-}
-
 #navbar {
   background-color: #EEEEEE;
   display: flex;
