@@ -33,7 +33,8 @@ class HomeController extends AbstractController
                         if ($vipAccess != null) {
                             $gallerys = $vipAccess->accessGallery()->get();
                         } else {
-                            $gallerys = [];
+                            $gallerys = []; 
+                            
                         }
                         // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PRIVATE)->limit($itemsPerPage)->get();
                         break;
