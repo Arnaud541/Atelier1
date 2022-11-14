@@ -26,12 +26,12 @@ class LoginController extends AbstractController
                     } else {
                         $this->request->method = 'GET';
                         $this->execute();
-                        Router::executeRoute('login_view');
+                        Router::executeRoute('login');
                     }
                 } else {
                     $this->request->method = 'GET';
                     $this->execute();
-                    Router::executeRoute('login_view');
+                    Router::executeRoute('login');
                 }
                 break;
             case 'GET':
