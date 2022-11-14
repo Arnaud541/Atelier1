@@ -18,6 +18,7 @@ class HomeController extends AbstractController
     public function execute(): void
     {
         AbstractView::addStyleSheet('html/css/Gallery.css');
+        AbstractView::removeStyleSheet('html/css/Form.css');
         $itemsPerPage = 6;
 
         if (isset($_SESSION['user_profile'])) {
@@ -28,9 +29,9 @@ class HomeController extends AbstractController
                         break;
                     case 1:
                         $vipAccess = VIPAccess::select()->where('id_user', '=', AbstractAuthentification::connectedUser())->first();
-                        if ($vipAccess != null){
+                        if ($vipAccess != null) {
                             $gallerys = $vipAccess->accessGallery()->get();
-                        } else{
+                        } else {
                             $gallerys = [];
                         }
                         // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PRIVATE)->limit($itemsPerPage)->get();
