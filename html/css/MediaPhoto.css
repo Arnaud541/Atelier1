@@ -4,32 +4,95 @@
   background-color: #C6C6C6;
 }
 
+.red_button {
+  padding: 20px;
+  background-color: #FF6262;
+  color: white;
+  border: none;
+  width: 20vw;
+  font-size: 1.25rem;
+  border-radius: 2vh;
+}
+.red_button:hover {
+  background-color: #ff7c7c;
+  cursor: pointer;
+}
+
+@media (min-width: 1081px) {
+  #fullsize {
+    display: flex;
+  }
+  #mobile_size {
+    display: none;
+  }
+}
+@media (max-width: 1080px) {
+  #fullsize {
+    display: none;
+  }
+  #mobile_size {
+    display: flex;
+  }
+  #mobile_size > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    position: fixed;
+    transition: 500ms;
+    height: 0;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    background-color: #FF6262;
+    z-index: 80;
+    font-family: Lato;
+    font-size: 2rem;
+    color: #EEEEEE;
+  }
+  #mobile_size > div > a {
+    display: none;
+  }
+  #mobile_size .show {
+    height: 100vh;
+  }
+  #mobile_size .show > a {
+    display: block;
+  }
+  #mobile_size .show > i {
+    cursor: pointer;
+  }
+  #mobile_size > i {
+    padding: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
 #navbar {
   background-color: #EEEEEE;
   display: flex;
 }
-#navbar > div {
+#navbar > div:first-of-type {
   flex-grow: 1;
 }
-#navbar > a {
+#navbar > a, #navbar > div > a {
   transition: 500ms;
   padding: 20px;
   font-family: Lato;
   text-align: center;
   font-size: 1.5rem;
 }
+#navbar > a:hover, #navbar > div > a:hover {
+  background-color: #C6C6C6;
+}
 #navbar > a:first-child {
-  position: absolute;
   font-size: 2rem;
   font-family: Poppins;
 }
 #navbar > a:first-child:hover {
   background-color: transparent;
 }
-#navbar > a:hover {
-  background-color: #C6C6C6;
-}
-#navbar > li {
+#navbar > li, #navbar > div > li {
   list-style: none;
   transition: 500ms;
   padding: 20px;
@@ -38,7 +101,7 @@
   font-size: 1.5rem;
   position: relative;
 }
-#navbar > li > ul, #navbar > li > ul > li {
+#navbar > li > ul, #navbar > li > ul > li, #navbar > div > li > ul, #navbar > div > li > ul > li {
   font-size: 1.25rem;
   list-style: none;
   padding-left: 0;
@@ -51,13 +114,13 @@
   width: 100%;
   left: 0;
 }
-#navbar > li > ul > :hover, #navbar > li > ul > li > :hover {
+#navbar > li > ul > :hover, #navbar > li > ul > li > :hover, #navbar > div > li > ul > :hover, #navbar > div > li > ul > li > :hover {
   background-color: #EEEEEE;
 }
-#navbar > li:hover {
+#navbar > li:hover, #navbar > div > li:hover {
   background-color: #C6C6C6;
 }
-#navbar > li:hover > ul {
+#navbar > li:hover > ul, #navbar > div > li:hover > ul {
   display: block;
 }
 
@@ -71,8 +134,12 @@
   z-index: 200;
 }
 
+section {
+  min-height: calc(100vh - 3.5rem - 80px);
+}
+
 footer {
-  font-family: "Lato";
+  font-family: "Lato", sans-serif;
   background-color: #EEEEEE;
   padding: 20px;
   font-size: 1rem;

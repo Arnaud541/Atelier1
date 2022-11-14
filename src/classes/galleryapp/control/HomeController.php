@@ -21,7 +21,10 @@ class HomeController extends AbstractController
         AbstractView::addStyleSheet('html/css/MediaPhoto.css');
         AbstractView::removeStyleSheet('html/css/Form.css');
         $itemsPerPage = 6;
-
+        $page = 1;
+        if (isset($this->request->get['page'])) {
+            $page = $this->request->get['page'];
+        }
         if (isset($_SESSION['user_profile'])) {
             if (isset($this->request->get['mode']) && isset($this->request->get['page']) && !empty($this->request->get['page'])) {
                 $current_page = $this->request->get['page'];
@@ -39,16 +42,19 @@ class HomeController extends AbstractController
                         break;
                 }
             } else {
-                $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
-
+                $currentPage = (int)($page ?? 1);
+                $offset = $itemsPerPage * ($currentPage - 1);
+                $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
+                $totalItems = count($gallerys);
+                $totalPages = ceil($totalItems / $itemsPerPage);
             }
         } else {
-            $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
-            $total_items = count($gallerys);
-            $total_pages = ceil($total_items/$itemsPerPage);
-            $current_page = 1;
+            $currentPage = (int)($page ?? 1);
 
-            echo $total_items, $total_pages;
+            $offset = $itemsPerPage * ($currentPage - 1);
+            $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
+            $totalItems = count($gallerys);
+            $totalPages = ceil($totalItems / $itemsPerPage);
         }
         $view = new HomeView($gallerys);
 

@@ -23,22 +23,43 @@ abstract class MediaPhotoView extends AbstractView implements Renderer
             return  '<nav id="navbar">
                         <a href="main.php">MediaPhoto</a>
                         <div></div>
-                        <li>Galeries <i class="fas fa-angle-down"></i>
-                            <ul>
-                                <a href="main.php?action=view_my_gallery"><li>Mes galeries</li></a>
-                                <a href="main.php?action=new_gallery"><li>Créer une galerie</li></a> 
-                            </ul>
-                        </li>
-                        <a href="main.php?action=logout">Deconnexion</a>
-                    </nav>';
+                        <div id="fullsize">
+                            <li>Galeries <i class="fas fa-angle-down"></i>
+                                <ul>
+                                    <a href="main.php?action=view_my_gallery"><li>Mes galeries</li></a>
+                                    <a href="main.php?action=new_gallery"><li>Créer une galerie</li></a> 
+                                </ul>
+                            </li>
+                            <a href="main.php?action=logout">Deconnexion</a>
+                        </div>
+                        <div id="mobile_size">
+                            <i class="fa-solid fa-bars" id="show"></i>
+                            <div>
+                                <i class="fa-solid fa-circle-xmark" id="close"></i>
+                                <a href="main.php?action=view_my_gallery">Mes galeries</a>
+                                <a href="main.php?action=new_gallery">Créer une galerie</a> 
+                                <a href="main.php?action=logout">Deconnexion</a>
+                            </div>
+                        </div>
+                    </nav><script src="./html/js/navbar.js"></script>';
         } else {
 
             return '<nav id="navbar">
                         <a href="main.php">MediaPhoto</a>
                         <div></div>
-                        <a href="main.php?action=signup">Inscription</a>
-                        <a href="main.php?action=login">Connexion</a>
-                    </nav>';
+                        <div id="fullsize">
+                            <a href="main.php?action=signup">Inscription</a>
+                            <a href="main.php?action=login">Connexion</a>
+                        </div>
+                        <div id="mobile_size">
+                            <i class="fa-solid fa-bars" id="show"></i>
+                            <div>
+                                <i class="fa-solid fa-circle-xmark" id="close"></i>
+                                <a href="main.php?action=signup">Inscription</a>
+                                <a href="main.php?action=login">Connexion</a>
+                            </div>
+                        </div>
+                    </nav><script src="./html/js/navbar.js"></script>';
         }
     }
 

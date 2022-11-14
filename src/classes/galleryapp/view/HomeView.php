@@ -19,7 +19,7 @@ class HomeView extends MediaPhotoView implements Renderer
         if (isset($_SESSION['user_profile'])) {
             $url_home_gallery_public = $this->router->urlFor('home_view', ['mode' => 0]);
             $url_home_gallery_private = $this->router->urlFor('home_view', ['mode' => 1]);
-            $html .= "<div><a href='$url_home_gallery_public'>Publique</a> / <a href='$url_home_gallery_private'>Privée</a></div>";
+            $html .= "<div class='mode'><a href='$url_home_gallery_public'>Publique</a> / <a href='$url_home_gallery_private'>Privée</a></div>";
         }
 
         $html .= "<div class='container-grid'>";
@@ -57,23 +57,27 @@ class HomeView extends MediaPhotoView implements Renderer
 
         $html .= "</div>";
 
-        // $html .= "<div>";
-        //         if((int)($this->request->get['page']) > 1)
-        //         {
-        //             $param_url_gallery_page = $this->request->get['page'] - 1;
-        //             $url = "{$this->router->urlFor('home_view')}?page=$param_url_gallery_page";
-        //             $html.= "<a href='$url'>Page Precédente</a>";
-        //         }
-        //         if((int)($this->request->get['page']) < / count($gallerys))
-        //         {
-        //             $param_url_gallery_page = $this->request->get['page'] - 1;
-        //             $url = "{$this->router->urlFor('home_view')}?page=$param_url_gallery_page";
-        //             $html.= "<a href='$url'>Page Precédente</a>";
-        //         }
-        //         "</div>";
+        $html .= "<div id='pages'><div>";
+        $page = 1;
+        if (isset($this->request->get['page'])) {
+            $page = $this->request->get['page'];
+        }
+        if ((int)($page) > 1) {
+            $param_url_gallery_page = $page - 1;
+            $url = "{$this->router->urlFor('home_view')}&page=$param_url_gallery_page";
+            $html .= "<a href='$url'><< </a>";
+        }
 
-        if ($gallerys == null){
-            $html .= "<div id='vide'><h1>Pas de galeries privées</h1></div>";
+        $html .= "$page";
+        if ((int)($page) < count($gallerys)) {
+            $param_url_gallery_page = $page + 1;
+            $url = "{$this->router->urlFor('home_view')}&page=$param_url_gallery_page";
+            $html .= "<a href='$url'> >></a>";
+        }
+        "</div></div>";
+
+        if ($gallerys == null) {
+            $html .= "<h1 id='vide'>Pas de galeries privées</h1>";
         }
 
         return $html;
