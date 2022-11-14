@@ -7,7 +7,8 @@ namespace MediaPhoto\galleryapp\auth;
 use MediaPhoto\galleryapp\model\User;
 use MediaPhoto\mf\auth\AbstractAuthentification;
 use MediaPhoto\mf\exceptions\AuthentificationException;
-
+use MediaPhoto\mf\router\Router;
+use MediaPhoto\mf\utils\HttpRequest;
 
 class MediaPhotoAuthentification extends AbstractAuthentification
 {
@@ -26,14 +27,16 @@ class MediaPhotoAuthentification extends AbstractAuthentification
         }
     }
 
-    public static function login(string $pseudo, string $password): void
+    public static function login(string $pseudo, string $password): bool
     {
 
         $user = User::where('pseudo', $pseudo)->first();
         if ($user) {
             self::checkPassword($password, $user->password, $user->id);
-        }else {
-            throw new AuthentificationException("Echec de l'authentification.");
+            return true;
+        } else {
+            // throw new AuthentificationException("Erreur d'authentification");
+            return false;
         }
     }
 }
