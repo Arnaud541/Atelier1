@@ -5,6 +5,8 @@ section {
     max-width: 600px;
     margin: 3em auto;
     width: calc(100% - 80px);
+    min-height: 100%;
+
 
     & > form {
         display: flex;
