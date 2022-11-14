@@ -24,9 +24,8 @@ class HomeView extends MediaPhotoView implements Renderer
 
         $html .= "<div class='container-grid'>";
         foreach ($gallerys as $gallery) {
-
             $url_gallery = $this->router->urlFor("gallery_view", ['id' => $gallery->id]);
-
+            echo $gallery->images()->get();
 
             if ($gallery->images()->get()->isNotEmpty()) {
 

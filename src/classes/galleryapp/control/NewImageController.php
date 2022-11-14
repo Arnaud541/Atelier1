@@ -26,16 +26,15 @@ class NewImageController extends AbstractController
                         $filename = $_FILES["photo"]["name"];
                         $filetype = $_FILES["photo"]["type"];
                         $filetmpname = $_FILES["photo"]["tmp_name"];
-
+                        $path = "./html/images/" . $filename;
                         $ext = pathinfo($filename, PATHINFO_EXTENSION);
                         if (array_key_exists($ext, $allowed)) {
 
                             if (in_array($filetype, $allowed)) {
-                                if (file_exists("/var/www/html/Atelier1/html/images/" . $filename)) {
+                                if (file_exists("./html/images/" . $filename)) {
                                     echo $filename . " existe déjà.";
                                 } else {
-                                    move_uploaded_file($filetmpname, "/var/www/html/Atelier1/html/images/" . $filename);
-                                    $path = "./html/images/" . $filename;
+                                    move_uploaded_file($filetmpname, "./html/images/" . $filename);
                                 }
                             }
                         }
