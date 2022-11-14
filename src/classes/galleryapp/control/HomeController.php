@@ -26,7 +26,8 @@ class HomeController extends AbstractController
             $page = $this->request->get['page'];
         }
         if (isset($_SESSION['user_profile'])) {
-            if (isset($this->request->get['mode'])) {
+            if (isset($this->request->get['mode']) && isset($this->request->get['page']) && !empty($this->request->get['page'])) {
+                $current_page = $this->request->get['page'];
                 switch ($this->request->get['mode']) {
                     case 0:
                         $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();

@@ -59,3 +59,36 @@ $router->addRoute('about_view', 'about', 'MediaPhoto\galleryapp\control\AboutCon
 $router->setDefaultRoute('liste_gallerys');
 
 $router->run();
+
+
+// $repo = opendir("images/");
+
+// $gallery_id =  Gallery::select('id')->get()->toArray();
+
+//$images = Image::select()->get();
+
+
+// foreach($images as $image){
+//     echo $image->id;
+//     echo "<br>";
+// }
+
+
+// $repo = opendir("html/images/");
+
+
+//     foreach($images as $image){
+//         $entry = @readdir($repo);
+//         if ($entry != '.' && $entry != '..'){
+//             $image->path = "./html/images/".$entry;
+//             $image->save();
+//         }
+//     }
+
+
+// for ($i = 0; $i < 80; $i++){
+//     $image = new Image();
+//     $image->title = 'dolor';
+//     $image->descript = 'Quisquam quae suscipit et tenetur et est officia';
+//     $image->save();
+// }
