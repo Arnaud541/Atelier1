@@ -4,7 +4,6 @@ namespace MediaPhoto\galleryapp\control;
 
 use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\model\Gallery;
-use MediaPhoto\galleryapp\view\GalleryView;
 use MediaPhoto\mf\control\AbstractController;
 use MediaPhoto\galleryapp\view\EditGalleryView;
 

@@ -84,6 +84,11 @@ abstract class AbstractView
         self::$style_sheets[] = $css_files;
     }
 
+    static public function removeStyleSheet(string $css_files): void
+    {
+        unset(self::$style_sheets[array_search($css_files, self::$style_sheets)]);
+    }
+
     /* Méthode setAppTitle 
      * 
      * Permet de fixer un nom pour l'application (affiché sur le

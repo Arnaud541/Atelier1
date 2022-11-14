@@ -4,26 +4,23 @@ namespace MediaPhoto\galleryapp\view;
 
 use MediaPhoto\mf\view\Renderer;
 use MediaPhoto\galleryapp\view\MediaPhotoView;
-use MediaPhoto\mf\view\AbstractView;
 
 class HomeView extends MediaPhotoView implements Renderer
 {
 
     public function render(): string
     {
-        // AbstractView::addStyleSheet('html/css/Gallery.css');
+
         $gallerys = $this->data;
         $html = "";
-
-
 
         if (isset($_SESSION['user_profile'])) {
             $url_home_gallery_public = $this->router->urlFor('home_view', ['mode' => 0]);
             $url_home_gallery_private = $this->router->urlFor('home_view', ['mode' => 1]);
-            $html .= "<div><a href='$url_home_gallery_public'>Publique</a>/<a href='$url_home_gallery_private'>Privée</a></div>";
+            $html .= "<div><a href='$url_home_gallery_public'>Publique</a> / <a href='$url_home_gallery_private'>Privée</a></div>";
         }
 
-        $html .= "<div class='container'>";
+        $html .= "<div class='container-grid'>";
         foreach ($gallerys as $gallery) {
 
             $url_gallery = $this->router->urlFor("gallery_view", ['id' => $gallery->id]);
@@ -31,15 +28,17 @@ class HomeView extends MediaPhotoView implements Renderer
 
             if ($gallery->images()->get()->isNotEmpty()) {
 
-                $image = $gallery->images()->first()->path;
+                $image = $gallery->images()->first();
 
 
                 $html .= "
                         <a href='$url_gallery'>
-                            <div class='gallery'>
-                                <h1>$gallery->name</h1>
-                                <img src='$image'>
-                                <p>$gallery->descript</p>
+                            <div class='gallery'>     
+                                <img src='$image->path' alt='$image->title'>
+                                <div class='gallery-description'>
+                                    <h1>$gallery->name</h1>
+                                    <p>$gallery->descript</p>
+                                </div>
                             </div>
                         </a>
                         ";

@@ -2,11 +2,12 @@
 
 namespace MediaPhoto\galleryapp\control;
 
+use MediaPhoto\mf\view\AbstractView;
 use MediaPhoto\galleryapp\model\Gallery;
-use MediaPhoto\galleryapp\model\VIPAccess;
 use MediaPhoto\galleryapp\view\HomeView;
-use MediaPhoto\mf\auth\AbstractAuthentification;
+use MediaPhoto\galleryapp\model\VIPAccess;
 use MediaPhoto\mf\control\AbstractController;
+use MediaPhoto\mf\auth\AbstractAuthentification;
 
 class HomeController extends AbstractController
 {
@@ -16,6 +17,7 @@ class HomeController extends AbstractController
 
     public function execute(): void
     {
+        AbstractView::addStyleSheet('html/css/Gallery.css');
         $itemsPerPage = 6;
 
         if (isset($_SESSION['user_profile'])) {
@@ -27,9 +29,6 @@ class HomeController extends AbstractController
                     case 1:
                         $vipAccess = VIPAccess::select()->where('id_user', '=', AbstractAuthentification::connectedUser())->first();
                         echo $vipAccess;
-                        // foreach($vipAccess as $test) {
-
-                        // }
                         $gallerys = $vipAccess->accessGallery()->get();
                         echo $gallerys;
                         // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PRIVATE)->limit($itemsPerPage)->get();
