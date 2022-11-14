@@ -144,4 +144,16 @@ footer {
   padding: 20px;
   font-size: 1rem;
   text-align: center;
+}
+
+#photo > img {
+  display: flex;
+  margin: auto;
+  max-width: 70vw;
+  max-height: 70vh;
+}
+#photo > div, #photo > h1 {
+  text-align: center;
+  width: 100vw;
+  font-family: Lato;
 }/*# sourceMappingURL=MediaPhoto.css.map */
