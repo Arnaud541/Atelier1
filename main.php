@@ -60,6 +60,7 @@ $router->setDefaultRoute('liste_gallerys');
 
 $router->run();
 
+
 // $repo = opendir("images/");
 
 // $gallery_id =  Gallery::select('id')->get()->toArray();
