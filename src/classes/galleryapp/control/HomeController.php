@@ -23,7 +23,8 @@ class HomeController extends AbstractController
         $itemsPerPage = 6;
 
         if (isset($_SESSION['user_profile'])) {
-            if (isset($this->request->get['mode'])) {
+            if (isset($this->request->get['mode']) && isset($this->request->get['page']) && !empty($this->request->get['page'])) {
+                $current_page = $this->request->get['page'];
                 switch ($this->request->get['mode']) {
                     case 0:
                         $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
@@ -34,22 +35,20 @@ class HomeController extends AbstractController
                             $gallerys = $vipAccess->accessGallery()->get();
                         } else {
                             $gallerys = []; 
-                            
                         }
-                        // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PRIVATE)->limit($itemsPerPage)->get();
                         break;
                 }
             } else {
                 $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
+
             }
         } else {
-            // $currentPage = (int)($this->request->get['page'] ?? 1);
+            $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
+            $total_items = count($gallerys);
+            $total_pages = ceil($total_items/$itemsPerPage);
+            $current_page = 1;
 
-            // $offset = $itemsPerPage * ($currentPage - 1);
-            // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
-            // $totalItems = count($gallerys);
-            $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->get();
-            // $totalPages = ceil($totalItems / $itemsPerPage);
+            echo $total_items, $total_pages;
         }
         $view = new HomeView($gallerys);
 

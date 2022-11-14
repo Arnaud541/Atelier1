@@ -73,7 +73,7 @@ class HomeView extends MediaPhotoView implements Renderer
         //         "</div>";
 
         if ($gallerys == null){
-            $html .= "<h1 id='vide'>Pas de galeries privées</h1>";
+            $html .= "<div id='vide'><h1>Pas de galeries privées</h1></div>";
         }
 
         return $html;
