@@ -18,6 +18,7 @@ class HomeController extends AbstractController
     public function execute(): void
     {
         AbstractView::addStyleSheet('html/css/Gallery.css');
+        AbstractView::addStyleSheet('html/css/MediaPhoto.css');
         AbstractView::removeStyleSheet('html/css/Form.css');
         $itemsPerPage = 6;
 
