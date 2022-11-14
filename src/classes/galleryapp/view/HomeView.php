@@ -19,7 +19,7 @@ class HomeView extends MediaPhotoView implements Renderer
         if (isset($_SESSION['user_profile'])) {
             $url_home_gallery_public = $this->router->urlFor('home_view', ['mode' => 0]);
             $url_home_gallery_private = $this->router->urlFor('home_view', ['mode' => 1]);
-            $html .= "<div><a href='$url_home_gallery_public'>Publique</a> / <a href='$url_home_gallery_private'>Privée</a></div>";
+            $html .= "<div class='mode'><a href='$url_home_gallery_public'>Publique</a> / <a href='$url_home_gallery_private'>Privée</a></div>";
         }
 
         $html .= "<div class='container-grid'>";
@@ -72,7 +72,7 @@ class HomeView extends MediaPhotoView implements Renderer
         //         }
         //         "</div>";
 
-        if ($gallerys == null){
+        if ($gallerys == null) {
             $html .= "<h1 id='vide'>Pas de galeries privées</h1>";
         }
 

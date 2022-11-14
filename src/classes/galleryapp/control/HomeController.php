@@ -48,7 +48,7 @@ class HomeController extends AbstractController
             // $offset = $itemsPerPage * ($currentPage - 1);
             // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
             // $totalItems = count($gallerys);
-            $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->get();
+            $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
             // $totalPages = ceil($totalItems / $itemsPerPage);
         }
         $view = new HomeView($gallerys);
