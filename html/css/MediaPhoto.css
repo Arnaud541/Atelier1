@@ -35,7 +35,7 @@
 #navbar > a:first-child {
   position: absolute;
   font-size: 2rem;
-  font-family: Poppins;
+  font-family: "Poppins", sans-serif;
 }
 #navbar > a:first-child:hover {
   background-color: transparent;
@@ -47,7 +47,7 @@
   list-style: none;
   transition: 500ms;
   padding: 20px;
-  font-family: Lato;
+  font-family: "Lato", sans-serif;
   text-align: center;
   font-size: 1.5rem;
   position: relative;
@@ -90,7 +90,7 @@ section {
 }
 
 footer {
-  font-family: "Lato";
+  font-family: "Lato", sans-serif;
   background-color: #EEEEEE;
   padding: 20px;
   font-size: 1rem;
