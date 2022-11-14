@@ -2,11 +2,12 @@
 
 namespace MediaPhoto\galleryapp\control;
 
+use MediaPhoto\mf\view\AbstractView;
 use MediaPhoto\galleryapp\model\Gallery;
-use MediaPhoto\galleryapp\model\VIPAccess;
 use MediaPhoto\galleryapp\view\HomeView;
-use MediaPhoto\mf\auth\AbstractAuthentification;
+use MediaPhoto\galleryapp\model\VIPAccess;
 use MediaPhoto\mf\control\AbstractController;
+use MediaPhoto\mf\auth\AbstractAuthentification;
 
 class HomeController extends AbstractController
 {
@@ -16,36 +17,44 @@ class HomeController extends AbstractController
 
     public function execute(): void
     {
+        AbstractView::addStyleSheet('html/css/Gallery.css');
+        AbstractView::addStyleSheet('html/css/MediaPhoto.css');
+        AbstractView::removeStyleSheet('html/css/Form.css');
         $itemsPerPage = 6;
-
+        $page = 1;
+        if (isset($this->request->get['page'])) {
+            $page = $this->request->get['page'];
+        }
         if (isset($_SESSION['user_profile'])) {
             if (isset($this->request->get['mode'])) {
                 switch ($this->request->get['mode']) {
                     case 0:
-                        $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->get();
+                        $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
                         break;
                     case 1:
                         $vipAccess = VIPAccess::select()->where('id_user', '=', AbstractAuthentification::connectedUser())->first();
-                        echo $vipAccess;
-                        // foreach($vipAccess as $test) {
-
-                        // }
-                        $gallerys = $vipAccess->accessGallery()->get();
-                        echo $gallerys;
+                        if ($vipAccess != null) {
+                            $gallerys = $vipAccess->accessGallery()->get();
+                        } else {
+                            $gallerys = [];
+                        }
                         // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PRIVATE)->limit($itemsPerPage)->get();
                         break;
                 }
             } else {
-                $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->get();
+                $currentPage = (int)($page ?? 1);
+                $offset = $itemsPerPage * ($currentPage - 1);
+                $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
+                $totalItems = count($gallerys);
+                $totalPages = ceil($totalItems / $itemsPerPage);
             }
         } else {
-            // $currentPage = (int)($this->request->get['page'] ?? 1);
+            $currentPage = (int)($page ?? 1);
 
-            // $offset = $itemsPerPage * ($currentPage - 1);
-            // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
-            // $totalItems = count($gallerys);
-            $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->get();
-            // $totalPages = ceil($totalItems / $itemsPerPage);
+            $offset = $itemsPerPage * ($currentPage - 1);
+            $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
+            $totalItems = count($gallerys);
+            $totalPages = ceil($totalItems / $itemsPerPage);
         }
         $view = new HomeView($gallerys);
 

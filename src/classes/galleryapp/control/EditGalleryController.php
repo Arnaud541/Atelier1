@@ -4,15 +4,16 @@ namespace MediaPhoto\galleryapp\control;
 
 use MediaPhoto\mf\router\Router;
 use MediaPhoto\galleryapp\model\Gallery;
-use MediaPhoto\galleryapp\view\GalleryView;
 use MediaPhoto\mf\control\AbstractController;
 use MediaPhoto\galleryapp\view\EditGalleryView;
+use MediaPhoto\mf\view\AbstractView;
 
 class EditGalleryController extends AbstractController
 {
 
     public function execute(): void
     {
+        AbstractView::addStyleSheet('html/css/EditGallery.css');
         if (isset($this->request->get['id'])) {
             $_SESSION['idGallery'] = $this->request->get['id'];
         }

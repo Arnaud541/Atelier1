@@ -21,17 +21,21 @@ class LoginController extends AbstractController
                         $pseudo = filter_var($this->request->post['pseudo'], FILTER_SANITIZE_SPECIAL_CHARS);
                         $password = $this->request->post['password'];
 
-                        MediaPhotoAuthentification::login($pseudo, $password);
+                        if (!MediaPhotoAuthentification::login($pseudo, $password)) {
+                            $this->request->method = 'GET';
+                            $this->execute();
+                            break;
+                        }
                         Router::executeRoute('home_view');
                     } else {
                         $this->request->method = 'GET';
                         $this->execute();
-                        throw new AuthentificationException("Champs vides");
+                        break;
                     }
                 } else {
                     $this->request->method = 'GET';
                     $this->execute();
-                    throw new AuthentificationException("Il manque des informations");
+                    break;
                 }
                 break;
             case 'GET':
