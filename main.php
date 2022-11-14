@@ -59,3 +59,6 @@ $router->addRoute('edit_gallery_information_view', 'edit_gallery_information', '
 $router->setDefaultRoute('liste_gallerys');
 
 $router->run();
+
+
+
