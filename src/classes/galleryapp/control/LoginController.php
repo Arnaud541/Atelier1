@@ -26,12 +26,12 @@ class LoginController extends AbstractController
                     } else {
                         $this->request->method = 'GET';
                         $this->execute();
-                        throw new AuthentificationException("Champs vides");
+                        Router::executeRoute('login_view');
                     }
                 } else {
                     $this->request->method = 'GET';
                     $this->execute();
-                    throw new AuthentificationException("Il manque des informations");
+                    Router::executeRoute('login_view');
                 }
                 break;
             case 'GET':
