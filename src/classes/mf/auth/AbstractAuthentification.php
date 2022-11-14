@@ -7,7 +7,6 @@ use MediaPhoto\mf\exceptions\AuthentificationException;
 
 abstract class AbstractAuthentification
 {
-
     /* la taille minimum des mot de passe */
     const MIN_PASSWORD_LENGTH = 6;
 
@@ -87,7 +86,7 @@ abstract class AbstractAuthentification
          */
 
         if (strlen($password) < self::MIN_PASSWORD_LENGTH) {
-            throw new AuthentificationException("La longueur du mot de passe est trop faible. 6 caractères minimum !");
+            //throw new AuthentificationException("La longueur du mot de passe est trop faible. 6 caractères minimum !");
         } else {
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             return $passwordHash;
