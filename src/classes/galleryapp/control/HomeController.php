@@ -24,7 +24,7 @@ class HomeController extends AbstractController
             if (isset($this->request->get['mode'])) {
                 switch ($this->request->get['mode']) {
                     case 0:
-                        $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->get();
+                        $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
                         break;
                     case 1:
                         $vipAccess = VIPAccess::select()->where('id_user', '=', AbstractAuthentification::connectedUser())->first();
@@ -35,7 +35,7 @@ class HomeController extends AbstractController
                         break;
                 }
             } else {
-                $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->get();
+                $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
             }
         } else {
             // $currentPage = (int)($this->request->get['page'] ?? 1);
