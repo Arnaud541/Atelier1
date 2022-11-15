@@ -1,8 +1,8 @@
 <?php
 
-namespace Tweeter\mf\router;
+namespace MediaPhoto\mf\router;
 
-use Tweeter\mf\utils\HttpRequest;
+use MediaPhoto\mf\utils\HttpRequest;
 
 
 abstract class AbstractRouter
@@ -74,8 +74,7 @@ abstract class AbstractRouter
     abstract public function addRoute(
         string $name,
         string $action,
-        string $ctrl,
-        int $level
+        string $ctrl
     ): void;
 
 

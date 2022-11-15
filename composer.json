@@ -1,5 +1,5 @@
 { "name": "atelier/mediaphoto",
-  "description": "Encore mieur que l'original",
+  "description": "Galerie photo",
   "type": "project",
   
   "autoload": {
@@ -9,6 +9,8 @@
   },
   
   "require": {
-      "illuminate/database": "*"
+      "illuminate/database": "*",
+      "phpunit/phpunit": "*",
+      "fakerphp/faker": "^1.20"
   }
 }

@@ -1,0 +1,83 @@
+
+section > div:first-child {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    & > h2 {
+        font-family: 'Lato', sans-serif;
+        font-size: 2.5em;
+        color: #524F4F;
+    }
+
+    & > a > button {
+        width: 12em;
+        height: 2.2em;
+        border-radius: 20px;
+        font-family: "Lato", sans-serif;
+        font-weight: bold;
+        color: #fff;
+        margin: 20px;
+        font-size: 1.3rem;
+        border: none;
+        background-color: #FF6262;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:800px) {
+    section > div:first-child h2 {
+        font-size: 2em;
+    }
+
+    section > div:first-child > a > button {
+        width: 9em;
+        font-size: 0.9em;
+        margin: 0px;
+    }
+}
+
+section > .grid-container-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2em;
+    row-gap: 2em;
+    margin-bottom: 2em;
+}
+
+@media screen and (max-width: 1200px) {
+    section > .grid-container-images {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section > .grid-container-images > .image > a:first-child {
+        position: absolute;
+        bottom: 17px;
+        left: 13px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    section > .grid-container-images {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    section > .grid-container-images > .image > a:first-child {
+        position: absolute;
+        bottom: 17px;
+        left: 13px;
+        font-size: 1.5em;
+    }
+}
+
+section > .grid-container-images > .image {
+    position:relative;
+}
+
+section > .grid-container-images > .image > a:first-child {
+    position: absolute;
+    font-size: 2.5rem;
+    bottom: 17px;
+    left: 13px;
+    color: #FF6262;
+}

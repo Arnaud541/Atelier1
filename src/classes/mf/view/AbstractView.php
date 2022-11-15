@@ -1,9 +1,9 @@
 <?php
 
-namespace Tweeter\mf\view;
+namespace MediaPhoto\mf\view;
 
-use Tweeter\mf\router\Router;
-use Tweeter\mf\utils\HttpRequest;
+use MediaPhoto\mf\router\Router;
+use MediaPhoto\mf\utils\HttpRequest;
 
 abstract class AbstractView
 {
@@ -84,6 +84,11 @@ abstract class AbstractView
         self::$style_sheets[] = $css_files;
     }
 
+    static public function removeStyleSheet(string $css_files): void
+    {
+        unset(self::$style_sheets[array_search($css_files, self::$style_sheets)]);
+    }
+
     /* Méthode setAppTitle 
      * 
      * Permet de fixer un nom pour l'application (affiché sur le
@@ -161,7 +166,7 @@ abstract class AbstractView
          *  Noter l'utilisation des variables ${title} ${style} et ${body}
          * 
          */
-
+        echo $styles;
         $html = <<<EOT
 <!DOCTYPE html>
 <html lang="fr">
@@ -169,7 +174,9 @@ abstract class AbstractView
     <head>
         <meta charset="utf-8">
         <title>${title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 	    ${styles}
+        
     </head>
 
     <body>

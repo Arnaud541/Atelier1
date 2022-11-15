@@ -1,1 +1,1 @@
-# Atelier1
+# MediaPhoto est une galerie photo.

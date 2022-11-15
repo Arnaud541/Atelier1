@@ -1,6 +1,6 @@
 <?php
 
-namespace Tweeter\mf\view;
+namespace MediaPhoto\mf\view;
 
 interface Renderer
 {
