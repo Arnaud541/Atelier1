@@ -26,7 +26,7 @@ class NewImageController extends AbstractController
                         $filename = $_FILES["photo"]["name"];
                         $filetype = $_FILES["photo"]["type"];
                         $filetmpname = $_FILES["photo"]["tmp_name"];
-                        $path = "./html/images/" . $filename;
+
                         $ext = pathinfo($filename, PATHINFO_EXTENSION);
                         if (array_key_exists($ext, $allowed)) {
 
@@ -35,6 +35,7 @@ class NewImageController extends AbstractController
                                     echo $filename . " existe déjà.";
                                 } else {
                                     move_uploaded_file($filetmpname, "./html/images/" . $filename);
+                                    $path = "./html/images/" . $filename;
                                 }
                             }
                         }

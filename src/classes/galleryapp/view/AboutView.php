@@ -10,6 +10,6 @@ class AboutView extends MediaPhotoView implements Renderer
 {
     public function render():string
     {
-        return '<a href="https://github.com/Arnaud541/Atelier1">https://github.com/Arnaud541/Atelier1</a>';
+        return '<div><a href="https://github.com/Arnaud541/Atelier1">https://github.com/Arnaud541/Atelier1</a></div>';
     }
 }

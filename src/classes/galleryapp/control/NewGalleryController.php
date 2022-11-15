@@ -59,7 +59,7 @@ class NewGalleryController extends AbstractController
                                 $vipAccess->id_gallery = $gallery->id;
                                 $vipAccess->save();
                             } else {
-                                throw new NotExistException("Utilisateur non trouvé.");
+                                //throw new NotExistException("Utilisateur non trouvé.");
                             }
                         }
                     }

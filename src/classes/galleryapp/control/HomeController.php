@@ -26,22 +26,22 @@ class HomeController extends AbstractController
             $page = $this->request->get['page'];
         }
         if (isset($_SESSION['user_profile'])) {
-            if (isset($this->request->get['mode'])) {
+            if (isset($this->request->get['mode']) && isset($this->request->get['page']) && !empty($this->request->get['page'])) {
+                $current_page = $this->request->get['page'];
                 switch ($this->request->get['mode']) {
                     case 0:
-                        $currentPage = (int)($page ?? 1);
-                        $offset = $itemsPerPage * ($currentPage - 1);
-                        $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->limit($itemsPerPage)->offset($offset)->get();
-                        $totalItems = count($gallerys);
-                        $totalPages = ceil($totalItems / $itemsPerPage);
+                        $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PUBLIC)->get();
                         break;
                     case 1:
-                        $vipAccess = VIPAccess::select()->where('id_user', '=', AbstractAuthentification::connectedUser())->first();
-                        if ($vipAccess != null) {
-                            $gallerys = $vipAccess->accessGallery()->get();
-                        } else {
-                            $gallerys = [];
-                        }
+                        $gallerys = Gallery::select('id', 'Gallery.id_user', 'name', 'descript', 'mode', 'created_at', 'updated_at')->join('VIPAccess', 'VIPAccess.id_gallery','=','Gallery.id')->where('VIPAccess.id_user', '=', AbstractAuthentification::connectedUser())->get();
+                        //var_dump($gallerys);
+                        // if ($vipAccess != null) {
+                        //     $gallerys = $vipAccess->accessGallery()->get();
+                        //     var_dump($vipAccess);
+                            
+                        // } else {
+                        //     $gallerys = [];
+                        // }
                         // $gallerys = Gallery::select()->where('mode', '=', self::GALLERY_PRIVATE)->limit($itemsPerPage)->get();
                         break;
                 }

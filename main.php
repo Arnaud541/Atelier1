@@ -23,20 +23,10 @@ $data = parse_ini_file("config/config.ini");
 
 $db = new Manager();
 
-$db->addConnection($data); /* configuration avec nos paramètres */
-$db->setAsGlobal();            /* rendre la connexion visible dans tout le projet */
-$db->bootEloquent(); /* établir la connexion */
+$db->addConnection($data);
+$db->setAsGlobal();
+$db->bootEloquent();
 
-// $user = User::where('id', '=', 30)->first();
-// $tag = Tag::where('tag', 'like',"#n%")->get();
-
-// foreach($tag as $t){
-//     $gallerys = $t->galleryTag()->get();
-//     foreach($gallerys as $gallery){
-//         echo $gallery->id;
-//         echo "<br>";
-//     }
-// }
 
 AbstractView::addStyleSheet('html/css/MediaPhoto.css');
 

@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@800&display=swap");
+@import url("./Normalize.css");
+h2 {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+
+section > .container-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 1em;
+  -moz-column-gap: 1em;
+       column-gap: 1em;
+  margin-bottom: 2em;
+  font-family: "Lato", sans-serif;
+}
+section > .container-grid > a {
+  display: inline-block;
+}
+section > .container-grid img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  section > .container-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 750px) {
+  section > .container-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}/*# sourceMappingURL=GalleryView.css.map */

@@ -44,10 +44,6 @@ section > form > button:hover {
   background-color: #ff7c7c;
 }
 
-footer {
-  position: absolute;
-}
-
 #inputfile {
   display: none;
 }

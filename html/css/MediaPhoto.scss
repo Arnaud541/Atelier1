@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@800&display=swap'); // font-family : Poppins; font-family : Lato;
 @import url('./Normalize.css');
- :root {
+
+:root {
     background-color: #C6C6C6;
 }
 
@@ -12,16 +13,21 @@
     width: calc(100vw / 5);
     font-size: 1.25rem;
     border-radius: 2vh;
+
     &:hover {
         background-color: lighten($color: #FF6262, $amount: 5);
         cursor: pointer;
     }
 }
 
+
+
+
 @media (min-width: 1081px) {
     #fullsize {
         display: flex;
     }
+
     #mobile_size {
         display: none;
     }
@@ -31,8 +37,10 @@
     #fullsize {
         display: none;
     }
+
     #mobile_size {
         display: flex;
+
         &>div {
             display: flex;
             flex-direction: column;
@@ -49,19 +57,24 @@
             font-family: Lato;
             font-size: 2rem;
             color: #EEEEEE;
+
             &>a {
                 display: none;
             }
         }
+
         .show {
             height: 100vh;
+
             &>a {
                 display: block;
             }
+
             &>i {
                 cursor: pointer;
             }
         }
+
         &>i {
             padding: 20px;
             font-size: 1.5rem;
@@ -73,9 +86,11 @@
 #navbar {
     background-color: #EEEEEE;
     display: flex;
+
     &>div:first-of-type {
         flex-grow: 1;
     }
+
     &>a,
     &>div>a {
         transition: 500ms;
@@ -83,19 +98,23 @@
         font-family: Lato;
         text-align: center;
         font-size: 1.5rem;
+
         &:hover {
             background-color: #C6C6C6;
         }
     }
+
     &>a {
         &:first-child {
             font-size: 2rem;
             font-family: Poppins;
+
             &:hover {
                 background-color: transparent;
             }
         }
     }
+
     &>li,
     &>div>li {
         list-style: none;
@@ -105,6 +124,7 @@
         text-align: center;
         font-size: 1.5rem;
         position: relative;
+
         &>ul,
         &>ul>li {
             font-size: 1.25rem;
@@ -118,12 +138,15 @@
             background-color: #d9d9d9;
             width: 100%;
             left: 0;
+
             &>:hover {
                 background-color: #EEEEEE;
             }
         }
+
         &:hover {
             background-color: #C6C6C6;
+
             &>ul {
                 display: block;
             }
@@ -145,10 +168,26 @@ section {
     min-height: calc(100vh - 3.5rem - 80px);
 }
 
+
 footer {
     font-family: 'Lato', sans-serif;
     background-color: #EEEEEE;
     padding: 20px;
     font-size: 1rem;
     text-align: center;
+}
+
+#photo {
+    &>img {
+        display: flex;
+        margin: auto;
+        max-width: 70vw;
+        max-height: 70vh;
+    }
+
+    &>div, &>h1 {
+        text-align: center;
+        width: 100vw;
+        font-family: Lato;
+    } 
 }

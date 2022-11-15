@@ -27,16 +27,15 @@ class EditGalleryView extends MediaPhotoView implements Renderer
             $content .= "<h1>Aucune image dans la galerie</h1>";
         } else {
 
-            $content .= "<div>";
+            $content .= "<div class='grid-container-images'>";
             foreach ($images as $image) {
 
                 $url_image = $this->router->urlFor("image_view", ['id' => $image->id]);
                 $url_delete = $this->router->urlFor("delete_image_view", ['id' => $image->id]);
 
-                $content .= "<div>
-                                <a href='$url_delete'>Delete</a>
-                            </div>";
-                $content .= "<div>
+
+                $content .= "<div class='image'>
+                                <a href='$url_delete'><i class='fa-solid fa-trash'></i></a>
                                 <a href='$url_image'><img alt='$image->title' src='$image->path'></a>
                             </div>";
             }
